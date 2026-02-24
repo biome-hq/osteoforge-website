@@ -1,12 +1,10 @@
 import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, ChevronLeft, ChevronRight, ArrowRight, ShoppingBag } from "lucide-react";
+import { ClipboardList, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { ProductCard } from "@/components/ProductCard";
-import { QuantitySelector } from "@/components/QuantitySelector";
 import { getProductBySlug, getRelatedProducts, collections } from "@/data/products";
-import { useWishlist } from "@/hooks/useWishlist";
 import { useCart } from "@/hooks/useCart";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -16,8 +14,6 @@ const ProductDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const product = getProductBySlug(slug || "");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [quantity, setQuantity] = useState(1);
-  const { addItem: addToWishlist, removeItem: removeFromWishlist, isInWishlist } = useWishlist();
   const { addItem: addToCart } = useCart();
   const { toast } = useToast();
 
@@ -27,7 +23,7 @@ const ProductDetail = () => {
         <div className="container-wide py-28 text-center">
           <h1 className="font-serif text-4xl mb-4">Product Not Found</h1>
           <p className="text-muted-foreground mb-8">
-            The piece you're looking for doesn't exist.
+            The product you're looking for doesn't exist.
           </p>
           <Button asChild className="rounded-none px-8 text-sm tracking-[0.1em] uppercase">
             <Link to="/products">Browse All Products</Link>
@@ -37,33 +33,15 @@ const ProductDetail = () => {
     );
   }
 
-  const inWishlist = isInWishlist(product.id);
   const relatedProducts = getRelatedProducts(product.id);
   const collection = collections.find((c) => c.id === product.collection);
 
-  const handleWishlistToggle = () => {
-    if (inWishlist) {
-      removeFromWishlist(product.id);
-      toast({
-        title: "Removed from wishlist",
-        description: `${product.name} has been removed from your wishlist.`,
-      });
-    } else {
-      addToWishlist(product);
-      toast({
-        title: "Added to wishlist",
-        description: `${product.name} has been saved to your wishlist.`,
-      });
-    }
-  };
-
-  const handleAddToCart = () => {
-    addToCart(product, quantity);
+  const handleAddToInquiry = () => {
+    addToCart(product, 1);
     toast({
-      title: "Added to bag",
-      description: `${quantity} × ${product.name} added to your bag.`,
+      title: "Added to inquiry",
+      description: `${product.name} has been added to your inquiry list.`,
     });
-    setQuantity(1);
   };
 
   const nextImage = () => {
@@ -87,7 +65,7 @@ const ProductDetail = () => {
             to="/products"
             className="hover:text-foreground transition-colors"
           >
-            Shop
+            Products
           </Link>
           <span className="text-border">/</span>
           {collection && (
@@ -215,7 +193,7 @@ const ProductDetail = () => {
               </h1>
 
               <p className="text-2xl font-serif text-foreground mb-8">
-                ${product.price.toLocaleString()}
+                Contact for Pricing
               </p>
 
               <div className="w-12 h-px bg-border mb-8" />
@@ -228,7 +206,7 @@ const ProductDetail = () => {
               <div className="space-y-5 mb-10 pb-10 border-b border-border">
                 <div>
                   <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground block mb-1.5">
-                    Materials
+                    Composition
                   </span>
                   <span className="text-sm text-foreground">{product.materials}</span>
                 </div>
@@ -240,42 +218,69 @@ const ProductDetail = () => {
                     <span className="text-sm text-foreground">{product.dimensions}</span>
                   </div>
                 )}
-              </div>
-
-              {/* Quantity Selector */}
-              <div className="mb-6">
-                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground block mb-3">
-                  Quantity
-                </span>
-                <QuantitySelector
-                  quantity={quantity}
-                  onQuantityChange={setQuantity}
-                />
+                {product.indications && product.indications.length > 0 && (
+                  <div>
+                    <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground block mb-1.5">
+                      Indications
+                    </span>
+                    <ul className="list-disc list-inside text-sm text-foreground space-y-1">
+                      {product.indications.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {product.keyFeatures && product.keyFeatures.length > 0 && (
+                  <div>
+                    <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground block mb-1.5">
+                      Key Features
+                    </span>
+                    <ul className="list-disc list-inside text-sm text-foreground space-y-1">
+                      {product.keyFeatures.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {product.regulatoryStatus && (
+                  <div>
+                    <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground block mb-1.5">
+                      Regulatory Status
+                    </span>
+                    <span className="text-sm text-foreground">{product.regulatoryStatus}</span>
+                  </div>
+                )}
+                {product.catalogNumber && (
+                  <div>
+                    <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground block mb-1.5">
+                      Catalog Number
+                    </span>
+                    <span className="text-sm text-foreground">{product.catalogNumber}</span>
+                  </div>
+                )}
+                {product.contraindications && product.contraindications.length > 0 && (
+                  <div>
+                    <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-muted-foreground block mb-1.5">
+                      Contraindications
+                    </span>
+                    <ul className="list-disc list-inside text-sm text-foreground space-y-1">
+                      {product.contraindications.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               {/* Actions */}
               <div className="flex flex-col gap-3">
                 <Button
                   size="lg"
-                  onClick={handleAddToCart}
+                  onClick={handleAddToInquiry}
                   className="rounded-none w-full py-6 text-sm tracking-[0.15em] uppercase btn-premium"
                 >
-                  <ShoppingBag className="w-4 h-4 mr-3" />
-                  Add to Bag
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="rounded-none w-full py-6 text-sm tracking-[0.1em] uppercase"
-                  onClick={handleWishlistToggle}
-                >
-                  <Heart
-                    className={cn(
-                      "w-4 h-4 mr-3 transition-all duration-300",
-                      inWishlist && "fill-primary text-primary"
-                    )}
-                  />
-                  {inWishlist ? "Saved to Wishlist" : "Add to Wishlist"}
+                  <ClipboardList className="w-4 h-4 mr-3" />
+                  Request Quote
                 </Button>
               </div>
 
@@ -283,18 +288,18 @@ const ProductDetail = () => {
               <div className="mt-10 pt-8 border-t border-border grid grid-cols-2 gap-6">
                 <div>
                   <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-muted-foreground/60 mb-1">
-                    Shipping
+                    Regulatory
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Complimentary worldwide
+                    Compliance documentation available
                   </p>
                 </div>
                 <div>
                   <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-muted-foreground/60 mb-1">
-                    Returns
+                    Support
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    14-day return policy
+                    Clinical team assistance
                   </p>
                 </div>
               </div>
@@ -305,12 +310,12 @@ const ProductDetail = () => {
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (
-        <section className="py-20 md:py-28 bg-linen">
+        <section className="py-20 md:py-28 bg-bone">
           <div className="container-full">
             <div className="flex items-end justify-between mb-12">
               <div>
                 <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
-                  You May Also Like
+                  Related Products
                 </p>
                 <h2 className="font-serif text-3xl md:text-4xl text-foreground">
                   More from {collection?.name}

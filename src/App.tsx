@@ -10,6 +10,8 @@ import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Technology from "./pages/Technology";
+import PSIWorkflow from "./pages/PSIWorkflow";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,9 +28,11 @@ const App = () => (
           <Route path="/products" element={<Products />} />
           <Route path="/product/:slug" element={<ProductDetail />} />
           <Route path="/about" element={<About />} />
+          <Route path="/technology" element={<Technology />} />
+          <Route path="/psi-workflow" element={<PSIWorkflow />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/inquiry" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import { Heart, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useWishlist } from "@/hooks/useWishlist";
 import { CartIcon } from "@/components/CartIcon";
 import { collections } from "@/data/products";
 import {
@@ -13,17 +12,11 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { items } = useWishlist();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,9 +40,9 @@ export const Header = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="font-serif text-2xl md:text-3xl tracking-tight text-foreground hover:text-primary transition-colors duration-300"
+            className="font-heading font-bold text-2xl md:text-3xl tracking-tight text-foreground hover:text-primary transition-colors duration-300"
           >
-            Maison
+            OsteoForge
           </Link>
 
           {/* Desktop Navigation */}
@@ -58,7 +51,7 @@ export const Header = () => {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground">
-                    Collections
+                    Products
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-1 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
@@ -91,7 +84,7 @@ export const Header = () => {
               to="/products"
               className="text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 link-underline"
             >
-              Shop All
+              All Products
             </Link>
 
             <Link
@@ -100,50 +93,24 @@ export const Header = () => {
             >
               About
             </Link>
+
+            <Link
+              to="/technology"
+              className="text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 link-underline"
+            >
+              Technology
+            </Link>
+
+            <Link
+              to="/psi-workflow"
+              className="text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 link-underline"
+            >
+              PSI Workflow
+            </Link>
           </div>
 
           {/* Right side actions */}
           <div className="flex items-center gap-2">
-            {/* Wishlist Icon with Tooltip */}
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <button className="relative p-2 hover:bg-accent transition-colors duration-300 group">
-                  <Heart className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-                  <AnimatePresence>
-                    {items.length > 0 && (
-                      <motion.span
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        exit={{ scale: 0 }}
-                        className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary text-primary-foreground text-[10px] font-semibold rounded-full flex items-center justify-center"
-                      >
-                        {items.length > 9 ? "9+" : items.length}
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
-                </button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" className="max-w-xs">
-                {items.length === 0 ? (
-                  <p className="text-sm">Your wishlist is empty</p>
-                ) : (
-                  <div className="space-y-2">
-                    <p className="text-sm font-medium">{items.length} saved {items.length === 1 ? 'item' : 'items'}</p>
-                    <div className="space-y-1">
-                      {items.slice(0, 3).map((item) => (
-                        <p key={item.id} className="text-xs text-muted-foreground truncate">
-                          {item.name}
-                        </p>
-                      ))}
-                      {items.length > 3 && (
-                        <p className="text-xs text-muted-foreground">+{items.length - 3} more</p>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </TooltipContent>
-            </Tooltip>
-
             {/* Cart Icon */}
             <CartIcon />
 
@@ -192,7 +159,7 @@ export const Header = () => {
               <div className="py-8 space-y-6">
                 <div className="space-y-1">
                   <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-muted-foreground/50 px-2 mb-3">
-                    Collections
+                    Products
                   </p>
                   {collections.slice(0, 6).map((collection, i) => (
                     <motion.div
@@ -213,9 +180,11 @@ export const Header = () => {
                 </div>
                 <div className="pt-6 border-t border-border space-y-1">
                   {[
-                    { to: "/products", label: "Shop All" },
+                    { to: "/products", label: "All Products" },
                     { to: "/about", label: "About" },
-                    { to: "/cart", label: "Shopping Bag" },
+                    { to: "/technology", label: "Technology" },
+                    { to: "/psi-workflow", label: "PSI Workflow" },
+                    { to: "/inquiry", label: "Product Inquiry" },
                   ].map((link, i) => (
                     <motion.div
                       key={link.to}

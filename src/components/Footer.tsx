@@ -12,19 +12,20 @@ export const Footer = () => {
             <div>
               <Link
                 to="/"
-                className="font-serif text-3xl md:text-4xl tracking-tight text-background"
+                className="font-heading font-bold text-3xl md:text-4xl tracking-tight text-background"
               >
-                Maison
+                OsteoForge
               </Link>
               <p className="mt-3 text-sm text-background/50 leading-relaxed max-w-xs">
-                Curated home objects and lifestyle pieces for considered living.
+                Next-generation bioresorbable bone regeneration technology.
+                Designed in India, for the world.
               </p>
             </div>
 
             {/* Newsletter in footer */}
             <div className="max-w-sm w-full">
               <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-background/40 mb-3">
-                Stay Connected
+                Stay Updated
               </p>
               <form className="flex gap-0">
                 <input
@@ -47,13 +48,13 @@ export const Footer = () => {
       {/* Main footer content */}
       <div className="container-full py-12 md:py-16">
         <div className="grid gap-10 md:grid-cols-4">
-          {/* Collections */}
+          {/* Products */}
           <div>
             <h4 className="text-[11px] font-semibold tracking-[0.25em] uppercase text-background/40 mb-5">
-              Collections
+              Products
             </h4>
             <ul className="space-y-3">
-              {collections.slice(0, 6).map((collection) => (
+              {collections.map((collection) => (
                 <li key={collection.id}>
                   <Link
                     to={`/products?collection=${collection.slug}`}
@@ -66,43 +67,51 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Explore */}
+          {/* Company */}
           <div>
             <h4 className="text-[11px] font-semibold tracking-[0.25em] uppercase text-background/40 mb-5">
-              Explore
+              Company
             </h4>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/products"
-                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                >
-                  Shop All
-                </Link>
-              </li>
               <li>
                 <Link
                   to="/about"
                   className="text-sm text-background/60 hover:text-background transition-colors duration-300"
                 >
-                  Our Story
+                  About
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/cart"
+                  to="/technology"
                   className="text-sm text-background/60 hover:text-background transition-colors duration-300"
                 >
-                  Shopping Bag
+                  Technology
                 </Link>
+              </li>
+              <li>
+                <Link
+                  to="/psi-workflow"
+                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
+                >
+                  PSI Workflow
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
+                >
+                  Careers
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Resources */}
           <div>
             <h4 className="text-[11px] font-semibold tracking-[0.25em] uppercase text-background/40 mb-5">
-              Support
+              Resources
             </h4>
             <ul className="space-y-3">
               <li>
@@ -110,7 +119,7 @@ export const Footer = () => {
                   href="#"
                   className="text-sm text-background/60 hover:text-background transition-colors duration-300"
                 >
-                  Shipping & Returns
+                  Clinical Data
                 </a>
               </li>
               <li>
@@ -118,7 +127,15 @@ export const Footer = () => {
                   href="#"
                   className="text-sm text-background/60 hover:text-background transition-colors duration-300"
                 >
-                  Care Guide
+                  Regulatory Info
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
+                >
+                  Instructions for Use
                 </a>
               </li>
               <li>
@@ -140,15 +157,15 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hello@maison.com"
+                  href="mailto:info@osteoforge.in"
                   className="text-sm text-background/60 hover:text-background transition-colors duration-300"
                 >
-                  hello@maison.com
+                  info@osteoforge.in
                 </a>
               </li>
               <li>
                 <p className="text-sm text-background/40 leading-relaxed">
-                  Mon–Fri, 9am–6pm CET
+                  Mon–Fri, 9am–6pm IST
                 </p>
               </li>
             </ul>
@@ -160,7 +177,8 @@ export const Footer = () => {
       <div className="border-t border-background/10">
         <div className="container-full py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-background/30">
-            © {new Date().getFullYear()} Maison. All rights reserved.
+            © {new Date().getFullYear()} OsteoForge Medical Technologies. All
+            rights reserved.
           </p>
           <div className="flex gap-8">
             <a

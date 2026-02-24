@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["var(--font-serif)", "Georgia", "serif"],
+        heading: ["var(--font-heading)", "system-ui", "sans-serif"],
+        serif: ["var(--font-heading)", "system-ui", "sans-serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       colors: {
@@ -51,14 +52,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        terracotta: {
-          DEFAULT: "hsl(var(--terracotta))",
-          light: "hsl(var(--terracotta-light))",
+        teal: {
+          DEFAULT: "hsl(var(--teal))",
+          light: "hsl(var(--teal-light))",
         },
-        cream: "hsl(var(--warm-cream))",
-        taupe: "hsl(var(--warm-taupe))",
-        charcoal: "hsl(var(--charcoal))",
-        linen: "hsl(var(--linen))",
+        "silk-gold": "hsl(var(--silk-gold))",
+        ivory: "hsl(var(--ivory))",
+        slate: "hsl(var(--slate))",
+        bone: "hsl(var(--bone))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

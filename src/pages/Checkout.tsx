@@ -12,23 +12,21 @@ import { useToast } from "@/hooks/use-toast";
 const Checkout = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { items, getSubtotal, clearCart } = useCart();
+  const { items, clearCart } = useCart();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    address: "",
-    city: "",
-    postalCode: "",
+    institution: "",
+    department: "",
+    title: "",
     country: "",
+    applicationArea: "",
+    patientVolume: "",
     notes: "",
   });
-
-  const subtotal = getSubtotal();
-  const shipping = subtotal > 500 ? 0 : 25;
-  const total = subtotal + shipping;
 
   if (items.length === 0) {
     return (
@@ -39,9 +37,9 @@ const Checkout = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="font-serif text-4xl mb-4">No Items to Checkout</h1>
+            <h1 className="font-serif text-4xl mb-4">No Items to Inquire About</h1>
             <p className="text-muted-foreground mb-8">
-              Your bag is empty. Add some items before checking out.
+              Your inquiry list is empty.
             </p>
             <Button
               asChild
@@ -49,7 +47,7 @@ const Checkout = () => {
               className="rounded-none px-10 py-6 text-sm tracking-[0.15em] uppercase btn-premium"
             >
               <Link to="/products">
-                Start Shopping
+                Browse Products
                 <ArrowRight className="ml-3 w-4 h-4" />
               </Link>
             </Button>
@@ -74,9 +72,9 @@ const Checkout = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     toast({
-      title: "Order Request Submitted",
+      title: "Inquiry Submitted",
       description:
-        "Thank you! We'll contact you shortly to complete your order.",
+        "Thank you! Our clinical team will contact you within 48 hours.",
     });
 
     clearCart();
@@ -90,24 +88,20 @@ const Checkout = () => {
       <div className="container-full py-6 border-b border-border">
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <Link to="/cart" className="hover:text-foreground transition-colors">
-            Your Bag
+            Your Inquiry
           </Link>
           <span className="text-border">/</span>
-          <span className="text-foreground">Checkout</span>
+          <span className="text-foreground">Submit Inquiry</span>
         </div>
       </div>
 
-      {/* Coming Soon Banner */}
+      {/* Info Banner */}
       <div className="bg-primary/5 border-b border-primary/10">
         <div className="container-full py-4">
           <div className="flex items-center gap-3 text-sm">
             <AlertCircle className="w-5 h-5 text-primary" />
-            <p>
-              <span className="font-medium">Online checkout coming soon.</span>{" "}
-              <span className="text-muted-foreground">
-                Please submit your order request below and we'll contact you to
-                complete your purchase.
-              </span>
+            <p className="text-muted-foreground">
+              Our team will review your inquiry and provide detailed pricing and availability information within 48 hours.
             </p>
           </div>
         </div>
@@ -121,7 +115,7 @@ const Checkout = () => {
             transition={{ duration: 0.6 }}
             className="font-serif text-4xl md:text-5xl mb-12"
           >
-            Checkout
+            Submit Product Inquiry
           </motion.h1>
 
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
@@ -209,87 +203,124 @@ const Checkout = () => {
                   </div>
                 </div>
 
-                {/* Shipping Address */}
+                {/* Professional Details */}
                 <div>
-                  <h2 className="font-serif text-xl mb-6">Shipping Address</h2>
+                  <h2 className="font-serif text-xl mb-6">Professional Details</h2>
                   <div className="space-y-4">
                     <div>
                       <label
-                        htmlFor="address"
+                        htmlFor="institution"
                         className="block text-xs font-semibold tracking-[0.1em] uppercase text-muted-foreground mb-2"
                       >
-                        Street Address *
+                        Institution / Hospital *
                       </label>
                       <Input
-                        id="address"
-                        name="address"
-                        value={formData.address}
+                        id="institution"
+                        name="institution"
+                        value={formData.institution}
                         onChange={handleInputChange}
                         required
                         className="rounded-none h-12"
                       />
                     </div>
-                    <div className="grid sm:grid-cols-3 gap-4">
-                      <div className="sm:col-span-1">
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
                         <label
-                          htmlFor="city"
+                          htmlFor="department"
                           className="block text-xs font-semibold tracking-[0.1em] uppercase text-muted-foreground mb-2"
                         >
-                          City *
+                          Department
                         </label>
                         <Input
-                          id="city"
-                          name="city"
-                          value={formData.city}
+                          id="department"
+                          name="department"
+                          value={formData.department}
                           onChange={handleInputChange}
-                          required
                           className="rounded-none h-12"
                         />
                       </div>
                       <div>
                         <label
-                          htmlFor="postalCode"
+                          htmlFor="title"
                           className="block text-xs font-semibold tracking-[0.1em] uppercase text-muted-foreground mb-2"
                         >
-                          Postal Code *
+                          Title / Role
                         </label>
                         <Input
-                          id="postalCode"
-                          name="postalCode"
-                          value={formData.postalCode}
+                          id="title"
+                          name="title"
+                          value={formData.title}
                           onChange={handleInputChange}
-                          required
-                          className="rounded-none h-12"
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="country"
-                          className="block text-xs font-semibold tracking-[0.1em] uppercase text-muted-foreground mb-2"
-                        >
-                          Country *
-                        </label>
-                        <Input
-                          id="country"
-                          name="country"
-                          value={formData.country}
-                          onChange={handleInputChange}
-                          required
                           className="rounded-none h-12"
                         />
                       </div>
                     </div>
+                    <div>
+                      <label
+                        htmlFor="country"
+                        className="block text-xs font-semibold tracking-[0.1em] uppercase text-muted-foreground mb-2"
+                      >
+                        Country *
+                      </label>
+                      <Input
+                        id="country"
+                        name="country"
+                        value={formData.country}
+                        onChange={handleInputChange}
+                        required
+                        className="rounded-none h-12"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                {/* Order Notes */}
+                {/* Clinical Details */}
                 <div>
-                  <h2 className="font-serif text-xl mb-6">Order Notes</h2>
+                  <h2 className="font-serif text-xl mb-6">Clinical Details</h2>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        htmlFor="applicationArea"
+                        className="block text-xs font-semibold tracking-[0.1em] uppercase text-muted-foreground mb-2"
+                      >
+                        Application Area
+                      </label>
+                      <Input
+                        id="applicationArea"
+                        name="applicationArea"
+                        value={formData.applicationArea}
+                        onChange={handleInputChange}
+                        placeholder="e.g., Craniofacial, Dental, Orthopedic"
+                        className="rounded-none h-12"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="patientVolume"
+                        className="block text-xs font-semibold tracking-[0.1em] uppercase text-muted-foreground mb-2"
+                      >
+                        Estimated Patient Volume
+                      </label>
+                      <Input
+                        id="patientVolume"
+                        name="patientVolume"
+                        value={formData.patientVolume}
+                        onChange={handleInputChange}
+                        placeholder="e.g., 1-5/month, 5-20/month"
+                        className="rounded-none h-12"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Additional Information */}
+                <div>
+                  <h2 className="font-serif text-xl mb-6">Additional Information</h2>
                   <Textarea
                     name="notes"
                     value={formData.notes}
                     onChange={handleInputChange}
-                    placeholder="Any special requests or notes for your order..."
+                    placeholder="Please describe your clinical needs, specific requirements, or any questions..."
                     className="rounded-none min-h-[120px]"
                   />
                 </div>
@@ -304,7 +335,7 @@ const Checkout = () => {
                     "Submitting..."
                   ) : (
                     <>
-                      Submit Order Request
+                      Submit Inquiry
                       <ArrowRight className="ml-3 w-4 h-4" />
                     </>
                   )}
@@ -312,15 +343,15 @@ const Checkout = () => {
               </form>
             </motion.div>
 
-            {/* Order Summary */}
+            {/* Inquiry Summary */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="lg:col-span-5"
             >
-              <div className="bg-linen p-8 lg:sticky lg:top-28">
-                <h2 className="font-serif text-2xl mb-6">Order Summary</h2>
+              <div className="bg-bone p-8 lg:sticky lg:top-28">
+                <h2 className="font-serif text-2xl mb-6">Inquiry Summary</h2>
 
                 {/* Items */}
                 <div className="space-y-4 mb-6">
@@ -340,46 +371,19 @@ const Checkout = () => {
                         <p className="text-xs text-muted-foreground mt-0.5">
                           Qty: {item.quantity}
                         </p>
-                        <p className="text-sm mt-1">
-                          ${(item.product.price * item.quantity).toLocaleString()}
-                        </p>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="border-t border-border pt-4 space-y-3 mb-6">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Subtotal</span>
-                    <span>${subtotal.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Shipping</span>
-                    <span>
-                      {shipping === 0 ? "Complimentary" : `$${shipping}`}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="border-t border-border pt-4">
-                  <div className="flex justify-between font-serif text-xl">
-                    <span>Total</span>
-                    <span>${total.toLocaleString()}</span>
-                  </div>
-                </div>
-
                 {/* Contact Info */}
                 <div className="mt-8 pt-6 border-t border-border">
-                  <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-muted-foreground/60 mb-3">
-                    Questions?
-                  </p>
                   <p className="text-sm text-muted-foreground">
-                    Email us at{" "}
                     <a
-                      href="mailto:hello@maison.com"
+                      href="mailto:info@osteoforge.in"
                       className="text-foreground underline"
                     >
-                      hello@maison.com
+                      info@osteoforge.in
                     </a>
                   </p>
                 </div>

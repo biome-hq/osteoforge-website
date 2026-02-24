@@ -1,115 +1,115 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Premium Boutique Home & Lifestyle Design System
-   Warm Scandinavian-inspired palette with elevated visual language
+/* OsteoForge Medical Technology Design System
+   Clinical precision meets natural innovation — deep teal, silk gold, bone white
 */
 
 @layer base {
   :root {
-    /* Warm neutral palette */
-    --background: 40 33% 97%;
-    --foreground: 30 10% 15%;
+    /* Clinical neutral palette with teal undertone */
+    --background: 180 15% 98%;
+    --foreground: 200 25% 12%;
 
-    --card: 40 30% 95%;
-    --card-foreground: 30 10% 15%;
+    --card: 180 12% 96%;
+    --card-foreground: 200 25% 12%;
 
-    --popover: 40 33% 97%;
-    --popover-foreground: 30 10% 15%;
+    --popover: 180 15% 98%;
+    --popover-foreground: 200 25% 12%;
 
-    /* Muted terracotta primary */
-    --primary: 18 45% 45%;
-    --primary-foreground: 40 33% 97%;
+    /* Deep teal primary — distinctive biotech, not generic hospital blue */
+    --primary: 174 55% 30%;
+    --primary-foreground: 180 15% 98%;
 
-    /* Warm taupe secondary */
-    --secondary: 30 15% 85%;
-    --secondary-foreground: 30 10% 20%;
+    /* Warm silk-gold secondary — reflects the silk fibroin material */
+    --secondary: 45 30% 92%;
+    --secondary-foreground: 200 25% 18%;
 
-    --muted: 30 10% 90%;
-    --muted-foreground: 30 8% 45%;
+    --muted: 180 8% 92%;
+    --muted-foreground: 200 10% 45%;
 
-    /* Soft cream accent */
-    --accent: 35 40% 92%;
-    --accent-foreground: 30 10% 20%;
+    /* Warm gold accent */
+    --accent: 45 35% 90%;
+    --accent-foreground: 200 25% 18%;
 
     --destructive: 0 65% 50%;
-    --destructive-foreground: 40 33% 97%;
+    --destructive-foreground: 180 15% 98%;
 
-    --border: 30 15% 88%;
-    --input: 30 15% 88%;
-    --ring: 18 45% 45%;
+    --border: 180 10% 88%;
+    --input: 180 10% 88%;
+    --ring: 174 55% 30%;
 
-    --radius: 0.25rem;
+    --radius: 0.375rem;
 
-    /* Custom tokens */
-    --terracotta: 18 45% 45%;
-    --terracotta-light: 18 45% 55%;
-    --warm-cream: 40 33% 97%;
-    --warm-taupe: 30 15% 75%;
-    --charcoal: 30 10% 15%;
-    --linen: 35 25% 93%;
-    
+    /* OsteoForge brand tokens */
+    --teal: 174 55% 30%;
+    --teal-light: 174 45% 45%;
+    --silk-gold: 45 40% 70%;
+    --ivory: 180 15% 98%;
+    --slate: 200 25% 12%;
+    --bone: 45 20% 95%;
+
     /* Typography */
-    --font-serif: 'Cormorant Garamond', Georgia, serif;
-    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-heading: 'Space Grotesk', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
 
-    --sidebar-background: 40 30% 95%;
-    --sidebar-foreground: 30 10% 25%;
-    --sidebar-primary: 18 45% 45%;
-    --sidebar-primary-foreground: 40 33% 97%;
-    --sidebar-accent: 35 40% 92%;
-    --sidebar-accent-foreground: 30 10% 20%;
-    --sidebar-border: 30 15% 88%;
-    --sidebar-ring: 18 45% 45%;
+    --sidebar-background: 180 12% 96%;
+    --sidebar-foreground: 200 25% 18%;
+    --sidebar-primary: 174 55% 30%;
+    --sidebar-primary-foreground: 180 15% 98%;
+    --sidebar-accent: 45 35% 90%;
+    --sidebar-accent-foreground: 200 25% 18%;
+    --sidebar-border: 180 10% 88%;
+    --sidebar-ring: 174 55% 30%;
   }
 
   .dark {
-    --background: 30 10% 10%;
-    --foreground: 40 20% 90%;
+    --background: 200 20% 8%;
+    --foreground: 180 15% 92%;
 
-    --card: 30 10% 12%;
-    --card-foreground: 40 20% 90%;
+    --card: 200 18% 10%;
+    --card-foreground: 180 15% 92%;
 
-    --popover: 30 10% 10%;
-    --popover-foreground: 40 20% 90%;
+    --popover: 200 20% 8%;
+    --popover-foreground: 180 15% 92%;
 
-    --primary: 18 50% 55%;
-    --primary-foreground: 30 10% 10%;
+    --primary: 174 50% 45%;
+    --primary-foreground: 200 20% 8%;
 
-    --secondary: 30 10% 20%;
-    --secondary-foreground: 40 20% 90%;
+    --secondary: 200 15% 18%;
+    --secondary-foreground: 180 15% 92%;
 
-    --muted: 30 10% 18%;
-    --muted-foreground: 30 10% 60%;
+    --muted: 200 15% 16%;
+    --muted-foreground: 180 10% 55%;
 
-    --accent: 30 15% 18%;
-    --accent-foreground: 40 20% 90%;
+    --accent: 45 25% 20%;
+    --accent-foreground: 180 15% 92%;
 
     --destructive: 0 60% 45%;
-    --destructive-foreground: 40 20% 90%;
+    --destructive-foreground: 180 15% 92%;
 
-    --border: 30 10% 20%;
-    --input: 30 10% 20%;
-    --ring: 18 50% 55%;
+    --border: 200 15% 18%;
+    --input: 200 15% 18%;
+    --ring: 174 50% 45%;
 
-    --terracotta: 18 50% 55%;
-    --terracotta-light: 18 50% 65%;
-    --warm-cream: 30 10% 10%;
-    --warm-taupe: 30 10% 30%;
-    --charcoal: 40 20% 90%;
-    --linen: 30 10% 15%;
+    --teal: 174 50% 45%;
+    --teal-light: 174 45% 55%;
+    --silk-gold: 45 35% 55%;
+    --ivory: 200 20% 8%;
+    --slate: 180 15% 92%;
+    --bone: 200 15% 12%;
 
-    --sidebar-background: 30 10% 12%;
-    --sidebar-foreground: 40 20% 90%;
-    --sidebar-primary: 18 50% 55%;
-    --sidebar-primary-foreground: 30 10% 10%;
-    --sidebar-accent: 30 15% 18%;
-    --sidebar-accent-foreground: 40 20% 90%;
-    --sidebar-border: 30 10% 20%;
-    --sidebar-ring: 18 50% 55%;
+    --sidebar-background: 200 18% 10%;
+    --sidebar-foreground: 180 15% 92%;
+    --sidebar-primary: 174 50% 45%;
+    --sidebar-primary-foreground: 200 20% 8%;
+    --sidebar-accent: 45 25% 20%;
+    --sidebar-accent-foreground: 180 15% 92%;
+    --sidebar-border: 200 15% 18%;
+    --sidebar-ring: 174 50% 45%;
   }
 }
 
@@ -130,15 +130,15 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-medium tracking-tight;
+    @apply font-heading font-semibold tracking-tight;
   }
 
   ::selection {
-    background: hsl(var(--terracotta) / 0.15);
+    background: hsl(var(--teal) / 0.15);
     color: hsl(var(--foreground));
   }
 
-  /* Premium scrollbar */
+  /* Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
@@ -148,12 +148,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--warm-taupe) / 0.4);
+    background: hsl(var(--teal) / 0.25);
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--warm-taupe) / 0.6);
+    background: hsl(var(--teal) / 0.4);
   }
 }
 
@@ -176,13 +176,13 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 
-  /* Premium editorial grid with featured item */
+  /* Editorial grid with featured item */
   .editorial-grid-featured {
     @apply grid gap-6 md:gap-8;
     grid-template-columns: repeat(12, 1fr);
   }
 
-  /* Elegant link underline animation */
+  /* Link underline animation */
   .link-underline {
     @apply relative;
   }
@@ -196,10 +196,10 @@
     @apply scale-x-100;
   }
 
-  /* Linen texture background */
-  .bg-linen {
-    background-color: hsl(var(--linen));
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23d4c4b5' fill-opacity='0.15' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  /* Bone texture background */
+  .bg-bone {
+    background-color: hsl(var(--bone));
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Ccircle cx='2' cy='2' r='0.5' fill='%23718096' fill-opacity='0.06'%3E%3C/circle%3E%3C/svg%3E");
   }
 
   /* Subtle hover scale */
@@ -211,7 +211,7 @@
     @apply -translate-y-1 shadow-lg;
   }
 
-  /* Premium image reveal */
+  /* Image reveal */
   .image-reveal {
     @apply overflow-hidden;
   }
@@ -283,7 +283,7 @@
   .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
   .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
 
-  /* Elegant button styles */
+  /* Button styles */
   .btn-premium {
     @apply relative overflow-hidden;
   }
@@ -312,12 +312,17 @@
     text-wrap: balance;
   }
 
-  .font-serif {
-    font-family: var(--font-serif);
+  .font-heading {
+    font-family: var(--font-heading);
   }
 
   .font-sans {
     font-family: var(--font-sans);
+  }
+
+  /* Keep font-serif as alias for heading for backward compatibility */
+  .font-serif {
+    font-family: var(--font-heading);
   }
 
   /* Aspect ratios for editorial layouts */

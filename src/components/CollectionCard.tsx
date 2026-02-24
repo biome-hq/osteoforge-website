@@ -36,14 +36,14 @@ export const CollectionCard = ({ collection, index = 0, variant = "default" }: C
           />
 
           {/* Multi-layer gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/10 to-transparent" />
-          <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/20 transition-colors duration-700" />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
+          <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-700" />
 
           {/* Content */}
           <div className="absolute inset-0 flex flex-col justify-end p-7 md:p-8">
             {/* Collection label */}
             <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/60 mb-2 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-              Collection
+              Product Line
             </p>
 
             {/* Title */}
@@ -59,7 +59,7 @@ export const CollectionCard = ({ collection, index = 0, variant = "default" }: C
             {/* Arrow indicator */}
             <div className="flex items-center gap-2 mt-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-150">
               <span className="text-xs font-medium tracking-[0.15em] uppercase text-white/90">
-                Explore
+                View Products
               </span>
               <ArrowRight className="w-4 h-4 text-white/90 transform group-hover:translate-x-1 transition-transform duration-300" />
             </div>

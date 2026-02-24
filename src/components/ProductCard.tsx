@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import { Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import { Product, collections } from "@/data/products";
-import { useWishlist } from "@/hooks/useWishlist";
 import { cn } from "@/lib/utils";
 
 interface ProductCardProps {
@@ -12,20 +10,8 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product, index = 0, variant = "default" }: ProductCardProps) => {
-  const { addItem, removeItem, isInWishlist } = useWishlist();
-  const inWishlist = isInWishlist(product.id);
   const collection = collections.find((c) => c.id === product.collection);
   const hasSecondImage = product.images.length > 1;
-
-  const handleWishlistToggle = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (inWishlist) {
-      removeItem(product.id);
-    } else {
-      addItem(product);
-    }
-  };
 
   return (
     <motion.article
@@ -65,25 +51,7 @@ export const ProductCard = ({ product, index = 0, variant = "default" }: Product
           )}
 
           {/* Gradient Overlay on Hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-          {/* Wishlist button */}
-          <button
-            onClick={handleWishlistToggle}
-            className={cn(
-              "absolute top-5 right-5 p-2.5 rounded-full transition-all duration-500",
-              "bg-background/90 backdrop-blur-md hover:bg-background shadow-sm",
-              "opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0",
-              inWishlist && "opacity-100 translate-y-0"
-            )}
-          >
-            <Heart
-              className={cn(
-                "w-4 h-4 transition-all duration-300",
-                inWishlist ? "fill-primary text-primary scale-110" : "text-foreground"
-              )}
-            />
-          </button>
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
           {/* Badges */}
           <div className="absolute top-5 left-5 flex flex-col gap-2">
@@ -136,16 +104,23 @@ export const ProductCard = ({ product, index = 0, variant = "default" }: Product
 
           <div className="flex items-center gap-3 pt-1">
             <p className="text-base font-medium text-foreground tracking-wide">
-              ${product.price.toLocaleString()}
+              Contact for Pricing
             </p>
-            {product.materials && (
+            {product.regulatoryStatus ? (
+              <>
+                <span className="w-px h-3 bg-border" />
+                <p className="text-xs text-muted-foreground/60 tracking-wide">
+                  {product.regulatoryStatus}
+                </p>
+              </>
+            ) : product.materials ? (
               <>
                 <span className="w-px h-3 bg-border" />
                 <p className="text-xs text-muted-foreground/60 tracking-wide">
                   {product.materials.split(",")[0]}
                 </p>
               </>
-            )}
+            ) : null}
           </div>
         </div>
       </Link>
