@@ -1,8 +1,30 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
 import { Layout } from "@/components/Layout";
-import { Button } from "@/components/ui/button";
+
+const team = [
+  {
+    name: "Dr Ramya Bojedla, MDS, PhD",
+    role: "Founder & CEO",
+    bio: "Dr. Ramya Bojedla, Oral Physician and Maxillofacial Radiologist with 4 years of clinical experience, a Ph.D. from IIT Hyderabad, and over 7 years of research expertise, drives innovation in medical device development with her deep clinical insights.",
+    image:
+      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80",
+  },
+  {
+    name: "Dr Syam Kumar Y, PhD",
+    role: "Co-Founder & Chief Scientific Officer",
+    bio: "Dr. Syam, with over 15 years of expertise in regulatory affairs, ensures OsteoForge's products meet the highest international quality standards and compliance requirements. His expertise guarantees that our innovations adhere to stringent regulatory benchmarks, ensuring global acceptance and trust.",
+    image:
+      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80",
+  },
+  {
+    name: "Dr Falguni Pati, PhD",
+    role: "Advisor",
+    bio: "With 20 years of experience, Dr. Pati leads research initiatives at OsteoForge, driving innovation and ensuring the company remains at the forefront of biomedical advancements.",
+    image:
+      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80",
+  },
+];
 
 const About = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -15,7 +37,10 @@ const About = () => {
   return (
     <Layout>
       {/* Hero — Full Viewport */}
-      <section ref={heroRef} className="relative h-screen -mt-16 md:-mt-20 mb-[-1px] overflow-hidden">
+      <section
+        ref={heroRef}
+        className="relative h-screen -mt-16 md:-mt-20 mb-[-1px] overflow-hidden"
+      >
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
             src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1920&q=80"
@@ -31,10 +56,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/80 mb-5">
-              Our Mission
-            </p>
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
               Redefining
               <br />
               <span className="italic font-normal">Regenerative Healthcare</span>
@@ -47,300 +69,86 @@ const About = () => {
         </div>
       </section>
 
-      {/* Vision */}
-      <section className="py-28 md:py-40">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <div className="divider-ornament mb-12">
-              <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-primary whitespace-nowrap">
-                Our Vision
-              </span>
-            </div>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.25] tracking-tight">
-              To establish OsteoForge as a global leader in regenerative
-              healthcare by delivering world-class bioresorbable and bioactive
-              implant solutions — designed in India, transforming lives
-              worldwide.
-            </h2>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Story — Large Image + Text */}
-      <section className="pb-20 md:pb-32">
+      {/* About Us */}
+      <section className="py-24 md:py-36">
         <div className="container-full">
-          {/* First story block */}
-          <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-center mb-24 md:mb-36">
+          <div className="grid md:grid-cols-12 gap-12 lg:gap-20">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="md:col-span-5"
+              transition={{ duration: 0.6 }}
+              className="md:col-span-4"
             >
-              <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-5">
-                The Problem
-              </p>
-              <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-8 leading-tight">
-                Why Traditional
-                <br />
-                <span className="italic">Implants Fail</span>
-              </h3>
-              <p className="text-muted-foreground leading-[1.8] mb-5">
-                Traditional metal implants present significant challenges: they
-                require secondary surgeries for removal, cause stress shielding
-                that weakens surrounding bone, interfere with post-operative
-                imaging, and are unsuitable for pediatric patients whose bones
-                are still growing.
-              </p>
-              <p className="text-muted-foreground leading-[1.8]">
-                These limitations lead to increased surgical burden, higher
-                healthcare costs, and compromised patient outcomes — problems
-                that affect millions of patients worldwide every year.
-              </p>
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight">
+                About Us
+              </h2>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, delay: 0.15 }}
-              className="md:col-span-7 relative"
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="md:col-span-8"
             >
-              <div className="aspect-[4/5] overflow-hidden group">
-                <img
-                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=1200&q=80"
-                  alt="Surgical procedure"
-                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
-                />
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Full-width banner image */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="mb-24 md:mb-36"
-          >
-            <div className="relative h-[50vh] md:h-[70vh] overflow-hidden group">
-              <img
-                src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1920&q=80"
-                alt=""
-                className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-foreground/20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="font-serif text-3xl md:text-5xl lg:text-6xl text-white text-center max-w-3xl px-6 leading-tight"
-                >
-                  "Every patient deserves implants that heal with their body,
-                  not against it."
-                </motion.p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Second story block — reversed */}
-          <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9 }}
-              className="md:col-span-7 md:order-first"
-            >
-              <div className="aspect-[4/5] overflow-hidden group">
-                <img
-                  src="https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=1200&q=80"
-                  alt="Medical technology innovation"
-                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="md:col-span-5"
-            >
-              <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-5">
-                Our Solution
+              <p className="text-foreground text-[17px] leading-[1.8] mb-6">
+                OsteoForge is a medical technology startup focused on creating next-generation solutions for bone healing and regeneration. We develop bioactive, bioresorbable, and 3D printed implants that are safe, effective, and naturally integrate with the native bone.
               </p>
-              <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-8 leading-tight">
-                From Lab
-                <br />
-                <span className="italic">to Operating Room</span>
-              </h3>
-              <p className="text-muted-foreground leading-[1.8] mb-5">
-                OsteoForge's Seribo™ material platform directly addresses each
-                limitation of traditional implants. Our silk fibroin-reinforced
-                polymer composite is bioactive — it promotes natural bone growth
-                through hydroxyapatite nucleation and RGD-mediated cell
-                adhesion.
+              <p className="text-foreground text-[17px] leading-[1.8] mb-6">
+                Our goal is to replace traditional metal implants with advanced materials that promote natural bone growth, dissolve safely over time, and remove the need for secondary surgeries.
               </p>
-              <p className="text-muted-foreground leading-[1.8]">
-                Combined with advanced 3D printing technology, we create
-                patient-specific implants that fit precisely, resorb at
-                clinically relevant rates synchronized with natural healing, and
-                allow clear post-operative imaging for accurate monitoring of
-                recovery.
+              <p className="text-foreground text-[17px] leading-[1.8] mb-6">
+                With world-class innovations made in India, OsteoForge is redefining regenerative healthcare and taking breakthrough solutions from India to the world.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-24 md:py-36 bg-bone">
+      {/* Team Section */}
+      <section className="md:py-28">
         <div className="container-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-20"
+            className="mb-16"
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
-              What Guides Us
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground">
-              Our Values
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground">
+              The Team
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-16 md:gap-12 lg:gap-20">
-            {[
-              {
-                title: "Scientific Excellence",
-                number: "01",
-                description:
-                  "World-class research combining silk fibroin bioactivity with advanced polymer science, creating implants that are approximately 1.5x stronger than pure PCL while maintaining full bioresorbability.",
-              },
-              {
-                title: "Sustainability",
-                number: "02",
-                description:
-                  "Locally sourced Indian silk reduces environmental impact and strengthens indigenous value chains. Our green 3D printing fabrication minimizes waste and ensures precision manufacturing.",
-              },
-              {
-                title: "Patient-First Innovation",
-                number: "03",
-                description:
-                  "Every product is designed to improve clinical outcomes — reducing surgeries, enabling precise fits from CT data, and empowering surgeons with reliable solutions that enhance quality of life.",
-              },
-            ].map((value, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+            {team.map((member, i) => (
               <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
+                key={member.name}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.15 }}
-                className="text-center"
+                transition={{ duration: 0.6, delay: i * 0.1 }}
               >
-                <span className="text-[11px] font-semibold tracking-[0.3em] text-primary/50 mb-4 block">
-                  {value.number}
-                </span>
-                <h3 className="font-serif text-2xl text-foreground mb-5">
-                  {value.title}
+                {/* Portrait */}
+                <div className="aspect-[3/4] overflow-hidden mb-6 bg-muted group">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+                  />
+                </div>
+                <h3 className="font-heading text-lg text-foreground mb-1">
+                  {member.name}
                 </h3>
-                <div className="w-8 h-px bg-primary/30 mx-auto mb-5" />
-                <p className="text-muted-foreground leading-[1.8]">
-                  {value.description}
+                <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary mb-4">
+                  {member.role}
+                </p>
+                <p className="text-muted-foreground text-sm leading-[1.8]">
+                  {member.bio}
                 </p>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Three-image strip */}
-      <section className="py-4 md:py-6">
-        <div className="grid grid-cols-3 gap-2 md:gap-4 h-[35vh] md:h-[50vh]">
-          {[
-            {
-              src: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
-              alt: "Laboratory research",
-            },
-            {
-              src: "https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=800&q=80",
-              alt: "3D printing technology",
-            },
-            {
-              src: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
-              alt: "Surgical application",
-            },
-          ].map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.15 }}
-              className="overflow-hidden group"
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
-              />
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-28 md:py-40 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1920&q=80"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/60" />
-        </div>
-
-        <div className="relative container-narrow text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/80 mb-5">
-              Partner With Us
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
-              Work With OsteoForge
-            </h2>
-            <p className="text-white/80 mb-10 max-w-md mx-auto leading-relaxed">
-              Whether you're a surgeon, hospital administrator, distributor, or
-              researcher, we'd love to discuss how our solutions can serve your
-              needs.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="rounded-none px-12 py-6 text-sm tracking-[0.15em] uppercase bg-white text-foreground hover:bg-white/90"
-            >
-              <a href="mailto:info@osteoforge.in">
-                Get in Touch
-                <ArrowRight className="ml-3 w-4 h-4" />
-              </a>
-            </Button>
-          </motion.div>
         </div>
       </section>
     </Layout>

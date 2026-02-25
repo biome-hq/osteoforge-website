@@ -102,10 +102,10 @@ const Products = () => {
               ease: [0.25, 0.46, 0.45, 0.94] as const,
             }}
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/80 mb-5">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-white/80 mb-5">
               Our Solutions
             </p>
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
               Two Product
               <br />
               <span className="italic font-normal whitespace-nowrap">Lines</span>
@@ -119,7 +119,7 @@ const Products = () => {
       </section>
 
       {/* Intro — editorial text block */}
-      <section className="py-28 md:py-40">
+      <section className="py-24 md:py-36">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -129,11 +129,11 @@ const Products = () => {
             className="max-w-3xl mx-auto text-center"
           >
             <div className="divider-ornament mb-12">
-              <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-primary whitespace-nowrap">
+              <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-primary whitespace-nowrap">
                 The Platform
               </span>
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.25] tracking-tight">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.25] tracking-tight">
               Seribo™ combines silk fibroin bioactivity with polycaprolactone
               resorbability — enabling implants that promote bone growth,
               dissolve naturally over time, and require no removal surgery.
@@ -152,10 +152,10 @@ const Products = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3">
               Product Line 01
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
+            <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-6">
               Seribo™ Scaffold System
             </h2>
             <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
@@ -181,7 +181,7 @@ const Products = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
-                <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/70">
+                <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/70">
                   Seribo™ Scaffold — SEM imaging, scale 200 µm
                 </p>
               </div>
@@ -198,14 +198,14 @@ const Products = () => {
                 transition={{ duration: 0.7, delay: i * 0.15 }}
                 className="text-center p-8 md:p-10 border border-border bg-background"
               >
-                <span className="text-[11px] font-semibold tracking-[0.3em] text-primary/50 mb-4 block">
+                <span className="text-xs font-medium tracking-[0.2em] text-primary/50 mb-4 block">
                   {item.label}
                 </span>
-                <h3 className="font-serif text-2xl text-foreground mb-3">
+                <h3 className="font-heading text-2xl text-foreground mb-3">
                   {item.title}
                 </h3>
                 <div className="w-8 h-px bg-primary/30 mx-auto mb-5" />
-                <p className="text-xs font-medium tracking-[0.1em] uppercase text-muted-foreground mb-5">
+                <p className="text-xs font-medium tracking-[0.08em] uppercase text-muted-foreground mb-5">
                   {item.subtitle}
                 </p>
                 <p className="text-muted-foreground text-sm leading-[1.8] mb-6">
@@ -232,7 +232,7 @@ const Products = () => {
           >
             <Link
               to="/technology"
-              className="inline-flex items-center gap-3 text-sm font-medium tracking-[0.1em] uppercase text-foreground hover:text-primary transition-colors group"
+              className="inline-flex items-center gap-3 text-sm font-medium tracking-[0.08em] uppercase text-foreground hover:text-primary transition-colors group"
             >
               Learn about the Seribo™ Platform
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
@@ -251,10 +251,10 @@ const Products = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3">
               Product Line 02
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground">
+            <h2 className="font-heading text-4xl md:text-5xl text-foreground">
               Bioresorbable Fixation System — CMF
             </h2>
           </motion.div>
@@ -275,7 +275,7 @@ const Products = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
-                <p className="text-[10px] font-semibold tracking-[0.25em] uppercase text-white/70">
+                <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/70">
                   Seribo™ Fixation Material — SEM imaging, scale 20 µm
                 </p>
               </div>
@@ -301,7 +301,7 @@ const Products = () => {
                 CMF Plates, Orbital Plates, Neuro Plates, and Mesh Plates.
               </p>
               <div className="border-t border-border pt-6">
-                <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-muted-foreground mb-3">
+                <p className="text-[10px] font-medium tracking-[0.25em] uppercase text-muted-foreground mb-3">
                   Indications
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -319,7 +319,7 @@ const Products = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             >
-              <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-muted-foreground mb-6">
+              <p className="text-[10px] font-medium tracking-[0.25em] uppercase text-muted-foreground mb-6">
                 Plate Design
               </p>
               {fixationFeatures.map((f, i) => (
@@ -331,7 +331,7 @@ const Products = () => {
                   transition={{ duration: 0.4, delay: i * 0.1 }}
                   className="border-t border-border py-6"
                 >
-                  <p className="font-serif text-lg text-foreground mb-2">{f.label}</p>
+                  <p className="font-heading text-lg text-foreground mb-2">{f.label}</p>
                   <p className="text-sm text-muted-foreground leading-[1.8]">
                     {f.description}
                   </p>
@@ -344,7 +344,7 @@ const Products = () => {
       </section>
 
       {/* CTA — image background */}
-      <section className="py-28 md:py-40 relative overflow-hidden">
+      <section className="py-24 md:py-36 relative overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=1920&q=80"
@@ -361,16 +361,16 @@ const Products = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/80 mb-5">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-white/80 mb-5">
               Get In Touch
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-10 leading-tight">
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-10 leading-tight">
               Interested in our solutions?
             </h2>
             <Button
               asChild
               size="lg"
-              className="rounded-none px-12 py-6 text-sm tracking-[0.15em] uppercase bg-white text-foreground hover:bg-white/90"
+              className="rounded-none px-12 py-6 text-sm tracking-[0.12em] uppercase bg-white text-foreground hover:bg-white/90"
             >
               <a href="mailto:info@osteoforge.in">
                 Contact Our Team

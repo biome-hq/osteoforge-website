@@ -1,184 +1,87 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
   return (
     <footer className="bg-foreground text-background">
-      {/* Top bar */}
-      <div className="border-b border-background/10">
-        <div className="container-full py-12 md:py-16">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div>
-              <Link
-                to="/"
-                className="font-heading font-bold text-3xl md:text-4xl tracking-tight text-background"
-              >
-                OsteoForge
-              </Link>
-              <p className="mt-3 text-sm text-background/50 leading-relaxed max-w-xs">
-                Next-generation bioresorbable bone regeneration technology.
-                Designed in India, for the world.
-              </p>
-            </div>
-
-            {/* Newsletter in footer */}
-            <div className="max-w-sm w-full">
-              <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-background/40 mb-3">
-                Stay Updated
-              </p>
-              <form className="flex gap-0">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 h-12 px-4 text-sm bg-background/5 border border-background/15 text-background placeholder:text-background/30 focus:outline-none focus:border-background/40 transition-colors"
-                />
-                <button
-                  type="submit"
-                  className="h-12 px-5 text-sm font-medium bg-background text-foreground hover:bg-background/90 transition-colors"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main footer content */}
       <div className="container-full py-12 md:py-16">
-        <div className="grid gap-10 md:grid-cols-3">
-          {/* Company */}
+        <div className="grid gap-10 md:grid-cols-2">
+          {/* Brand column */}
           <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.25em] uppercase text-background/40 mb-5">
-              Company
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/about"
-                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/products"
-                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                >
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/technology"
-                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                >
-                  Technology
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                >
-                  Careers
-                </a>
-              </li>
-            </ul>
+            <Link
+              to="/"
+              className="font-heading font-bold text-2xl tracking-tight text-background"
+            >
+              OsteoForge
+            </Link>
+            <p className="mt-3 text-sm text-background/50 leading-relaxed max-w-xs">
+              Next-generation bioresorbable bone regeneration technology.
+              <br />
+              Designed in India, for the world.
+            </p>
+            <p className="mt-8 text-xs text-background/30">
+              &copy; {new Date().getFullYear()} OsteoForge Medical Technologies.
+              All rights reserved.
+            </p>
           </div>
 
-          {/* Resources */}
-          <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.25em] uppercase text-background/40 mb-5">
-              Resources
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                >
-                  Clinical Data
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                >
-                  Regulatory Info
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                >
-                  Instructions for Use
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                >
-                  FAQ
-                </a>
-              </li>
-            </ul>
-          </div>
+          {/* Links */}
+          <div className="grid grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-xs font-medium tracking-[0.2em] uppercase text-background/40 mb-5">
+                Company
+              </h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    to="/about"
+                    className="text-sm text-background/60 hover:text-background transition-colors duration-300"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/technology"
+                    className="text-sm text-background/60 hover:text-background transition-colors duration-300"
+                  >
+                    Technology & Products
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.25em] uppercase text-background/40 mb-5">
-              Contact
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="mailto:info@osteoforge.in"
-                  className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                >
-                  info@osteoforge.in
-                </a>
-              </li>
-              <li>
-                <p className="text-sm text-background/40 leading-relaxed">
-                  Mon–Fri, 9am–6pm IST
-                </p>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="border-t border-background/10">
-        <div className="container-full py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-background/30">
-            © {new Date().getFullYear()} OsteoForge Medical Technologies. All
-            rights reserved.
-          </p>
-          <div className="flex gap-8">
-            <a
-              href="#"
-              className="text-xs text-background/30 hover:text-background/60 transition-colors duration-300"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-xs text-background/30 hover:text-background/60 transition-colors duration-300"
-            >
-              Terms of Service
-            </a>
-            <a
-              href="#"
-              className="text-xs text-background/30 hover:text-background/60 transition-colors duration-300"
-            >
-              Cookie Policy
-            </a>
+            <div>
+              <h4 className="text-xs font-medium tracking-[0.2em] uppercase text-background/40 mb-5">
+                Contact
+              </h4>
+              <ul className="space-y-3">
+                <li>
+                  <p className="text-sm text-background/60 leading-relaxed">
+                    Mon–Fri, 9am–6pm IST
+                  </p>
+                </li>
+                <li>
+                  <p className="text-sm text-background/60 hover:text-background transition-colors duration-300">
+                    Hyderabad, India
+                  </p>
+                </li>
+                <li>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-none px-10 py-6 text-sm tracking-[0.12em] shrink-0 bg-background/70 text-foreground hover:bg-background/90"
+                  >
+                    <a href="mailto:info@osteoforge.in">
+                      Contact Us
+                      <ArrowRight className="ml-3 w-4 h-4" />
+                    </a>
+                  </Button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

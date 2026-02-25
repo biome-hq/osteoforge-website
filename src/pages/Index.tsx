@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { useRef } from "react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
@@ -73,48 +73,45 @@ const Index = () => {
             }}
             className="max-w-3xl"
           >
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-white mb-8 leading-[0.9] tracking-tight">
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-white mb-8 leading-[0.9] tracking-tight">
               Reimagining
               <br />
               <span className="italic font-normal whitespace-nowrap">Bone Healing</span>
             </h1>
             <p className="text-base md:text-lg text-white/80 mb-10 leading-relaxed max-w-lg">
-              Restoring function, reconfiguring aesthetics. Faster and safer
-              than ever.
+              Restoring function. Accelerating recovery. Safer than
+              ever before.
             </p>
             <Button
               asChild
               size="lg"
-              className="rounded-none px-10 py-6 text-sm tracking-[0.15em] uppercase btn-premium"
+              className="rounded-none px-10 py-6 text-sm tracking-[0.12em] uppercase"
             >
               <Link to="/technology">
-                Explore Technology
+                Learn about our Technology
                 <ArrowRight className="ml-3 w-4 h-4" />
               </Link>
             </Button>
           </motion.div>
 
-          {/* Scroll indicator */}
+          {/* Scroll indicator — minimal, professional */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            transition={{ delay: 2, duration: 1 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2"
           >
-            <span className="text-[10px] tracking-[0.3em] uppercase text-white/50">
-              Scroll
-            </span>
             <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <ArrowDown className="w-4 h-4 text-white/50" />
+              <ChevronDown className="w-5 h-5 text-white/40" />
             </motion.div>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* Seribo Technology Section */}
+      {/* Seribo Technology Section — Asymmetric editorial layout */}
       <section className="py-20 md:py-28">
         <div className="container-full">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -147,13 +144,13 @@ const Index = () => {
               }}
               className="md:py-12"
             >
-              <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-4">
+              <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-4">
                 Our Innovation
               </p>
-              <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-[0.95]">
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-[0.95]">
                 Seribo™ Material Platform
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">
+              <p className="text-muted-foreground text-[15px] leading-[1.75] mb-8 max-w-md">
                 A revolutionary silk fibroin-reinforced polymer composite
                 combining bioactivity, mechanical strength, and 3D printability.
                 Seribo™ enables implants that promote natural bone growth and
@@ -162,7 +159,7 @@ const Index = () => {
               <Button
                 asChild
                 size="lg"
-                className="rounded-none px-10 py-6 text-sm tracking-[0.15em] uppercase btn-premium"
+                className="rounded-none px-10 py-6 text-sm tracking-[0.12em] uppercase"
               >
                 <Link to="/technology">
                   Learn About Seribo™
@@ -174,42 +171,53 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Key Differentiators */}
-      <section className="py-24 md:py-32 bg-bone">
+      {/* Key Differentiators — Horizontal numbered list with left-aligned heading */}
+      <section className="py-16 md:py-24 bg-bone">
         <div className="container-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{
-              duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94] as const,
-            }}
-            className="text-center mb-16"
-          >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-6">
-              Why Seribo™
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.3] max-w-3xl mx-auto">
-              Five key advantages that set OsteoForge apart in regenerative
-              healthcare.
-            </h2>
-          </motion.div>
+          <div className="grid md:grid-cols-12 gap-10 md:gap-16 mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="md:col-span-5"
+            >
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight">
+                Five key advantages that set OsteoForge apart in regenerative
+                healthcare.
+              </h2>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="md:col-span-7 flex items-end"
+            >
+              <p className="text-muted-foreground text-[15px] leading-[1.75] max-w-lg">
+                Our Seribo™ platform addresses the fundamental limitations of
+                traditional metal implants — from stress shielding and imaging
+                interference to the burden of secondary removal surgery.
+              </p>
+            </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-6 mb-12">
+          <div className="border-t border-border" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0">
             {differentiators.map((item, index) => (
               <motion.div
                 key={item.number}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center md:text-left"
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="py-8 lg:pr-8 border-b lg:border-b-0 lg:border-r border-border last:border-0"
               >
-                <p className="text-[11px] font-semibold tracking-[0.3em] text-primary mb-3">
+                <p className="text-xs font-medium text-primary/60 mb-3">
                   {item.number}
                 </p>
-                <h3 className="font-serif text-xl md:text-2xl text-foreground mb-2">
+                <h3 className="font-heading text-lg md:text-xl text-foreground mb-2">
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -219,12 +227,12 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="text-center">
+          <div className="mt-10">
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="rounded-none px-10 py-6 text-sm tracking-[0.15em] uppercase"
+              className="rounded-none px-10 py-6 text-sm tracking-[0.12em] uppercase"
             >
               <Link to="/about">
                 Learn More
@@ -235,7 +243,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Banner */}
+      {/* CTA Banner — Image background */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -246,7 +254,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-foreground/70" />
         </div>
 
-        <div className="relative container-full text-center">
+        <div className="relative container-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -255,22 +263,19 @@ const Index = () => {
               duration: 0.8,
               ease: [0.25, 0.46, 0.45, 0.94] as const,
             }}
-            className="max-w-2xl mx-auto"
+            className="max-w-xl"
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/70 mb-6">
-              Partner With Us
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-[1.2]">
-              Ready to Transform Patient Outcomes?
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">
+              Ready to discuss how OsteoForge can serve your needs?
             </h2>
-            <p className="text-white/80 leading-relaxed mb-10 max-w-lg mx-auto">
-              Whether you're a surgeon, distributor, or researcher, we'd love to
-              discuss how OsteoForge can serve your needs.
+            <p className="text-white/70 leading-relaxed mb-10 max-w-md text-[15px]">
+              Whether you're a surgeon, distributor, or researcher — we'd
+              welcome the conversation.
             </p>
             <Button
               asChild
               size="lg"
-              className="rounded-none px-10 py-6 text-sm tracking-[0.15em] uppercase bg-white text-foreground hover:bg-white/90"
+              className="rounded-none px-10 py-6 text-sm tracking-[0.12em] uppercase bg-white text-foreground hover:bg-white/90"
             >
               <a href="mailto:info@osteoforge.in">
                 Contact Our Team

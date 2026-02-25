@@ -1,58 +1,109 @@
-import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { Layout } from "@/components/Layout";
-import { Button } from "@/components/ui/button";
 
 const differentiators = [
   {
     number: "01",
     title: "Bioactivity & Biomimicry",
     description:
-      "Silk fibroin facilitates mesenchymal stem cell differentiation, enhances adhesion, and promotes osteogenesis. The RGD motif in Antheraea mylitta silk supports osteointegration, wound healing, and tissue regeneration. Carbonyl groups serve as nucleation sites for calcium salts, forming bone-like apatite.",
+      "Seribo enables a bioactive, biomimetic environment that supports osteointegration and regenerative healing. The platform architecture is designed to encourage cellular attachment and progressive mineralization, allowing the scaffold to actively participate in bone regeneration rather than function as a passive structural substitute.",
   },
   {
     number: "02",
     title: "Physiological Bioresorption",
     description:
-      "Controlled degradation at clinically relevant rates, synchronized with natural healing. Enhanced mechanical strength approximately 1.5\u00D7 stronger than pure PCL. Maintains stability while gradually transferring load to regenerating bone, eliminating the need for secondary surgery.",
+      "Seribo supports controlled bioresorption at clinically relevant rates aligned with the natural bone healing cascade. The material maintains mechanical stability during early regeneration and progressively facilitates physiological load transfer to newly formed bone, eliminating the need for secondary removal procedures.",
   },
   {
     number: "03",
-    title: "3D Printability",
+    title: "Radiolucency",
     description:
-      "Compatible with FDM-based 3D printing technologies, enabling patient-specific implants and complex scaffold designs. Interconnected porous structures promote cellular attachment, vascularization, and uniform tissue integration for faster bone regeneration.",
+      "Seribo provides radiolucent performance that allows unobstructed X-ray and CT visualization of the healing site. This enables accurate monitoring of regeneration without the imaging artifacts commonly associated with metallic implants.",
   },
   {
     number: "04",
-    title: "Sustainability",
+    title: "3D Printability",
     description:
-      "Locally sourced silk reduces environmental impact and strengthens indigenous value chains. Green fabrication with 3D printing minimizes waste and ensures precision. A commitment to eco-conscious, affordable healthcare, blending innovation with sustainability.",
+      "Seribo integrates seamlessly with FDM-based 3D printing to enable complex, patient-specific geometries. The controlled porous architecture promotes cellular infiltration, vascularization, and uniform tissue integration — supporting predictable regenerative outcomes.",
   },
   {
     number: "05",
-    title: "Radiolucency",
+    title: "Sustainability",
     description:
-      "Radiographic transparency allows clear X-ray and CT imaging of underlying bone. Enables accurate monitoring of healing and regeneration, unlike radiopaque metal implants that create imaging artifacts.",
+      "Seribo combines advanced biomaterials with additive manufacturing to ensure precision fabrication and reduced material waste. The platform is designed for scalable production and cost-efficient deployment while aligning with broader sustainability goals in healthcare.",
   },
 ];
 
-const comparisons = [
+const comparisonData = [
+  { feature: "Bioactivity for bone regrowth", metal: false, other: false, seribo: true },
+  { feature: "No secondary surgery", metal: false, other: true, seribo: true },
+  { feature: "Radiolucent performance", metal: false, other: true, seribo: true },
+  { feature: "Patient-specific 3D printing", metal: false, other: false, seribo: true },
+  { feature: "Pediatric-suitable", metal: false, other: true, seribo: true },
+];
+
+const scaffoldSublines = [
   {
-    title: "Metal Implants",
+    id: "psi",
+    label: "01",
+    title: "Patient-Specific Implants",
+    subtitle: "Precision-fit. 3D printed. Bioactive.",
     description:
-      "Require secondary removal surgery, cause stress shielding, interfere with imaging",
+      "Fully customized for each patient and defect, designed and 3D printed from individual CT data to ensure a precise anatomical fit. The porous architecture, enriched with naturally occurring RGD sequences in silk microfibers, promotes osteoblast attachment, bone ingrowth, and regeneration.",
+    details: [
+      "Precisely tailored to individual defects from CT scan data",
+      "Eliminates intraoperative implant modifications",
+      "Reduces wound exposure and minimizes operating time",
+      "Interconnected porosity promotes cellular attachment and vascularization",
+    ],
   },
   {
-    title: "Other Bioresorbables",
+    id: "grafts",
+    label: "02",
+    title: "Porous Bone Grafts",
+    subtitle: "Osteoconductive. Bioresorbable. Versatile.",
     description:
-      "Limited bioactivity, lower mechanical strength, less controlled resorption rates",
+      "Bioactive, osteoconductive scaffolds designed to support bone regeneration in trauma, tumor, and defect management. Their interconnected porous architecture facilitates cellular infiltration, vascularization, and natural bone remodelling while providing a stable framework.",
+    details: [
+      "Guides new bone formation within defect sites",
+      "Promotes vascularization and bone remodelling",
+      "Gradually replaced by native bone over time",
+      "Suitable for mandibular reconstruction, large segmental defects, and craniofacial surgery",
+    ],
   },
   {
-    title: "Seribo\u2122",
+    id: "membranes",
+    label: "03",
+    title: "Porous Bone Membranes",
+    subtitle: "Guided bone regeneration. Dual-layer architecture.",
     description:
-      "Bioactive bone growth, controlled resorption, 1.5\u00D7 strength, clear imaging, patient-specific 3D printing",
+      "Designed for predictable bone regeneration across dental, craniofacial, and orthopedic indications. The dual-layer structure features a smooth outer surface preventing epithelial proliferation and porous inner layers promoting osteoblast attachment for guided bone regeneration.",
+    details: [
+      "Smooth outer layer prevents soft tissue intrusion",
+      "Porous inner layers promote osteoblast attachment",
+      "Fully resorbable within 6–9 months depending on size and thickness",
+      "Adaptable for socket preservation, ridge augmentation, and GBR",
+    ],
+  },
+];
+
+const fixationFeatures = [
+  {
+    label: "Beveled Edge",
+    description:
+      "Reduces palpability under the skin for improved patient comfort post-surgery.",
+  },
+  {
+    label: "Partial Countersinks",
+    description:
+      "Provide stable plate–screw interfaces, minimize micromotion, and maintain a low profile.",
+  },
+  {
+    label: "Straight-Edged Design",
+    description:
+      "Maintains plate thickness at boundaries for superior strength and resistance to deformation.",
   },
 ];
 
@@ -84,16 +135,12 @@ const Technology = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 0.3,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/80 mb-5">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-white/80 mb-5">
               Innovation
             </p>
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
               Seribo&trade;
               <br />
               <span className="italic font-normal">Material Platform</span>
@@ -107,8 +154,8 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* What is Seribo */}
-      <section className="py-28 md:py-40">
+      {/* What is Seribo — Pull-quote */}
+      <section className="py-24 md:py-36">
         <div className="container-narrow">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -117,12 +164,12 @@ const Technology = () => {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <div className="divider-ornament mb-12">
-              <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-primary whitespace-nowrap">
+            <div className="divider-ornament mb-10">
+              <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-primary whitespace-nowrap">
                 The Science
               </span>
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.25] tracking-tight">
+            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl text-foreground leading-[1.35] tracking-tight">
               Seribo&trade; is an advanced bioactive and bioresorbable
               composite, combining silk fibroin microfibers with
               polycaprolactone (PCL). This natural fibre-reinforced polymer
@@ -134,110 +181,63 @@ const Technology = () => {
       </section>
 
       {/* 5 Key Differentiators */}
-      <section className="py-24 md:py-36 bg-bone">
+      <section className="py-20 md:py-28 bg-bone">
         <div className="container-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-20"
+            className="mb-16"
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3">
               Key Advantages
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground">
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground">
               Five Pillars of Innovation
             </h2>
           </motion.div>
 
-          <div className="space-y-16 lg:space-y-20">
-            {/* First row: 3 items */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 lg:gap-20">
-              {differentiators.slice(0, 3).map((item, i) => (
-                <motion.div
-                  key={item.number}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: i * 0.15 }}
-                  className="text-center"
-                >
-                  <span className="text-[11px] font-semibold tracking-[0.3em] text-primary/50 mb-4 block">
-                    {item.number}
-                  </span>
-                  <h3 className="font-serif text-2xl text-foreground mb-5">
-                    {item.title}
-                  </h3>
-                  <div className="w-8 h-px bg-primary/30 mx-auto mb-5" />
-                  <p className="text-muted-foreground leading-[1.8]">
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Second row: 2 items centered */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-12 lg:gap-20 max-w-2xl mx-auto">
-              {differentiators.slice(3).map((item, i) => (
-                <motion.div
-                  key={item.number}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: (i + 3) * 0.15 }}
-                  className="text-center"
-                >
-                  <span className="text-[11px] font-semibold tracking-[0.3em] text-primary/50 mb-4 block">
-                    {item.number}
-                  </span>
-                  <h3 className="font-serif text-2xl text-foreground mb-5">
-                    {item.title}
-                  </h3>
-                  <div className="w-8 h-px bg-primary/30 mx-auto mb-5" />
-                  <p className="text-muted-foreground leading-[1.8]">
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison Section */}
-      <section className="py-24 md:py-36">
-        <div className="container-full">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-20"
-          >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
-              Compare
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground">
-              Why Seribo&trade; Over Traditional Implants?
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-12">
-            {comparisons.map((item, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-border">
+            {differentiators.slice(0, 3).map((item, i) => (
               <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                key={item.number}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.15 }}
-                className="text-center p-8 md:p-10 border border-border"
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="py-10 md:pr-10 border-b md:border-b-0 md:border-r border-border last:border-0"
               >
-                <h3 className="font-serif text-2xl text-foreground mb-5">
+                <span className="text-xs font-medium text-primary/50 mb-3 block">
+                  {item.number}
+                </span>
+                <h3 className="font-heading text-xl text-foreground mb-4">
                   {item.title}
                 </h3>
-                <div className="w-8 h-px bg-primary/30 mx-auto mb-5" />
-                <p className="text-muted-foreground leading-[1.8]">
+                <p className="text-muted-foreground text-sm leading-[1.8]">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-border">
+            {differentiators.slice(3).map((item, i) => (
+              <motion.div
+                key={item.number}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: (i + 3) * 0.1 }}
+                className="py-10 md:pr-10 border-b md:border-b-0 md:border-r border-border last:border-0"
+              >
+                <span className="text-xs font-medium text-primary/50 mb-3 block">
+                  {item.number}
+                </span>
+                <h3 className="font-heading text-xl text-foreground mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-[1.8]">
                   {item.description}
                 </p>
               </motion.div>
@@ -246,53 +246,267 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-28 md:py-40 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=1920&q=80"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/60" />
-        </div>
-
-        <div className="relative container-narrow text-center">
+      {/* Comparison Table */}
+      <section className="py-20 md:py-28">
+        <div className="container-full">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3">
+              Compare
+            </p>
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground">
+              Why Seribo&trade; Over Traditional Implants?
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="overflow-x-auto"
+          >
+            <table className="w-full min-w-[600px] text-left">
+              <thead>
+                <tr className="border-b-2 border-foreground">
+                  <th className="py-4 pr-8 text-sm font-medium text-foreground">
+                    Feature
+                  </th>
+                  <th className="py-4 px-6 text-sm font-medium text-muted-foreground text-center">
+                    Metal Implants
+                  </th>
+                  <th className="py-4 px-6 text-sm font-medium text-muted-foreground text-center">
+                    Other Bioresorbables
+                  </th>
+                  <th className="py-4 px-6 text-sm font-medium text-primary text-center">
+                    Seribo™
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((row) => (
+                  <tr key={row.feature} className="border-b border-border">
+                    <td className="py-4 pr-8 text-sm text-foreground">
+                      {row.feature}
+                    </td>
+                    <td className="py-4 px-6 text-center">
+                      {row.metal ? (
+                        <Check className="w-4 h-4 text-primary mx-auto" />
+                      ) : (
+                        <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />
+                      )}
+                    </td>
+                    <td className="py-4 px-6 text-center">
+                      {row.other ? (
+                        <Check className="w-4 h-4 text-primary mx-auto" />
+                      ) : (
+                        <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />
+                      )}
+                    </td>
+                    <td className="py-4 px-6 text-center">
+                      {row.seribo ? (
+                        <Check className="w-4 h-4 text-primary mx-auto" />
+                      ) : (
+                        <X className="w-4 h-4 text-muted-foreground/40 mx-auto" />
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Seribo Scaffold System — Product Line 01 */}
+      <section className="py-20 md:py-28 bg-bone">
+        <div className="container-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3">
+              Product Line 01
+            </p>
+            <h2 className="font-heading text-3xl md:text-5xl text-foreground mb-6">
+              Seribo&trade; Scaffold System
+            </h2>
+            <p className="text-muted-foreground text-[15px] leading-[1.8] max-w-2xl">
+              Designed for bone regeneration in trauma, tumor, and defect
+              management. Combining silk fibroin bioactivity with PCL's
+              resorbability, the system restores bone through osteoconductive
+              and bioactive 3D printed scaffolds.
+            </p>
+          </motion.div>
+
+          {/* Main image */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="relative aspect-[21/9] overflow-hidden mb-16"
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/80 mb-5">
-              Explore Further
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-10 leading-tight">
-              See Seribo&trade; in Action
-            </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-none px-12 py-6 text-sm tracking-[0.15em] uppercase bg-white text-foreground hover:bg-white/90"
-              >
-                <a href="mailto:info@osteoforge.in">
-                  Contact Us
-                  <ArrowRight className="ml-3 w-4 h-4" />
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="rounded-none px-12 py-6 text-sm tracking-[0.15em] uppercase text-white border-white hover:bg-white hover:text-foreground"
-              >
-                <Link to="/products">
-                  Our Solutions
-                  <ArrowRight className="ml-3 w-4 h-4" />
-                </Link>
-              </Button>
+            <img
+              src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920&q=80"
+              alt="Seribo Scaffold System"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
+              <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/70">
+                Seribo™ Scaffold — SEM imaging, scale 200 µm
+              </p>
             </div>
+          </motion.div>
+
+          {/* Three scaffold sub-lines */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+            {scaffoldSublines.map((item, i) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: i * 0.15 }}
+                className="p-8 md:p-10 bg-bone"
+              >
+                <span className="text-xs font-medium tracking-[0.2em] text-primary/50 mb-4 block">
+                  {item.label}
+                </span>
+                <h3 className="font-heading text-2xl text-foreground mb-3">
+                  {item.title}
+                </h3>
+                <div className="w-8 h-px bg-primary/30 mb-5" />
+                <p className="text-xs font-medium tracking-[0.08em] uppercase text-muted-foreground mb-5">
+                  {item.subtitle}
+                </p>
+                <p className="text-muted-foreground text-sm leading-[1.8] mb-6">
+                  {item.description}
+                </p>
+                <ul className="space-y-2">
+                  {item.details.map((d) => (
+                    <li key={d} className="flex items-start gap-3 text-sm text-muted-foreground">
+                      <Check className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bioresorbable Fixation System — CMF — Product Line 02 */}
+      <section className="py-20 md:py-28">
+        <div className="container-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3">
+              Product Line 02
+            </p>
+            <h2 className="font-heading text-3xl md:text-5xl text-foreground">
+              Bioresorbable Fixation System — CMF
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-start">
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9 }}
+              className="md:col-span-7"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden group">
+                <img
+                  src="https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=1200&q=80"
+                  alt="CMF Fixation System"
+                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6">
+                  <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/70">
+                    Seribo™ Fixation Material — SEM imaging, scale 20 µm
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Details */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              className="md:col-span-5"
+            >
+              <p className="text-muted-foreground text-[15px] leading-[1.8] mb-6">
+                A bioresorbable fixation system for the stabilisation of
+                fractures and reconstruction of the craniomaxillofacial
+                skeleton. These implants provide fixation during bone healing,
+                then resorb naturally, avoiding removal surgery.
+              </p>
+              <p className="text-muted-foreground text-[15px] leading-[1.8] mb-8">
+                Especially beneficial in pediatric cases, where ongoing bone
+                growth makes permanent metal implants unsuitable. Available in
+                CMF Plates, Orbital Plates, Neuro Plates, and Mesh Plates.
+              </p>
+              <div className="border-t border-border pt-6">
+                <p className="text-[10px] font-medium tracking-[0.25em] uppercase text-muted-foreground mb-3">
+                  Indications
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Fracture repair and reconstruction in the craniomaxillofacial
+                  skeleton (pediatric &amp; adult). Non-load-bearing use in
+                  alignment and fixation of fragments, grafts, or substitutes in
+                  CMF and mandibular regions.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Plate design features */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="mt-16 md:mt-20"
+          >
+            <p className="text-[10px] font-medium tracking-[0.25em] uppercase text-muted-foreground mb-6">
+              Plate Design
+            </p>
+            {fixationFeatures.map((f, i) => (
+              <motion.div
+                key={f.label}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="border-t border-border py-6"
+              >
+                <p className="font-heading text-lg text-foreground mb-2">{f.label}</p>
+                <p className="text-sm text-muted-foreground leading-[1.8]">
+                  {f.description}
+                </p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>

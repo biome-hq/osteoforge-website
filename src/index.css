@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -29,7 +29,7 @@
     --secondary-foreground: 200 25% 18%;
 
     --muted: 180 8% 92%;
-    --muted-foreground: 200 10% 45%;
+    --muted-foreground: 200 12% 38%;
 
     /* Warm gold accent */
     --accent: 45 35% 90%;
@@ -53,7 +53,7 @@
     --bone: 45 20% 95%;
 
     /* Typography */
-    --font-heading: 'Space Grotesk', system-ui, sans-serif;
+    --font-heading: 'DM Sans', system-ui, sans-serif;
     --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
 
     --sidebar-background: 180 12% 96%;
@@ -124,6 +124,8 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.6;
     font-feature-settings: "kern" 1, "liga" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -131,6 +133,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-semibold tracking-tight;
+    line-height: 1.15;
   }
 
   ::selection {

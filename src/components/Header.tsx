@@ -21,11 +21,15 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinkClass = cn(
+  const navLinkClass = (path: string) => cn(
     "text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-500 link-underline",
-    transparent
-      ? "text-white/80 hover:text-white"
-      : "text-muted-foreground hover:text-foreground"
+    _pathname === path
+      ? transparent
+        ? "text-white"
+        : "text-foreground"
+      : transparent
+        ? "text-white/70 hover:text-white"
+        : "text-muted-foreground hover:text-foreground"
   );
 
   return (
@@ -54,19 +58,17 @@ export const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/products" className={navLinkClass}>
-              Products
+            <Link to="/technology" className={navLinkClass("/technology")}>
+              Technology &amp; Products
             </Link>
-            <Link to="/technology" className={navLinkClass}>
-              Technology
-            </Link>
-            <Link to="/about" className={navLinkClass}>
+            <Link to="/about" className={navLinkClass("/about")}>
               About
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
+            aria-label="Toggle navigation menu"
             className={cn(
               "md:hidden p-2 transition-colors duration-300",
               transparent ? "text-white" : "hover:bg-accent"
@@ -114,8 +116,7 @@ export const Header = () => {
             >
               <div className="py-8 space-y-1">
                 {[
-                  { to: "/products", label: "Products" },
-                  { to: "/technology", label: "Technology" },
+                  { to: "/technology", label: "Technology & Products" },
                   { to: "/about", label: "About" },
                 ].map((link, i) => (
                   <motion.div
@@ -126,7 +127,12 @@ export const Header = () => {
                   >
                     <Link
                       to={link.to}
-                      className="block px-2 py-2.5 text-sm font-medium text-foreground hover:bg-accent transition-colors duration-300"
+                      className={cn(
+                        "block px-2 py-2.5 text-sm font-medium transition-colors duration-300",
+                        _pathname === link.to
+                          ? "text-primary bg-primary/5"
+                          : "text-foreground hover:bg-accent"
+                      )}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {link.label}
