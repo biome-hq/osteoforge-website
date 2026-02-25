@@ -79,7 +79,7 @@ const Index = () => {
               <span className="italic font-normal whitespace-nowrap">Bone Healing</span>
             </h1>
             <p className="text-base md:text-lg text-white/80 mb-10 leading-relaxed max-w-lg">
-              Restoring function. Accelerating recovery. 
+              Restoring function. Accelerating recovery.
               <br />
               Safer than ever before.
             </p>
@@ -149,7 +149,7 @@ const Index = () => {
                 Our Innovation
               </p>
               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-[0.95]">
-                Seribo™ Material Platform
+                Seribo™
               </h2>
               <p className="text-muted-foreground text-[15px] leading-[1.75] mb-8 max-w-md">
                 A revolutionary silk fibroin-reinforced polymer composite
@@ -236,7 +236,7 @@ const Index = () => {
               className="rounded-none px-10 py-6 text-sm tracking-[0.12em] uppercase"
             >
               <Link to="/about">
-                Learn More
+                Learn More About Us
                 <ArrowRight className="ml-3 w-4 h-4" />
               </Link>
             </Button>
