@@ -43,23 +43,15 @@ export const Header = () => {
     >
       <nav className="container-full">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link
-            to="/"
-            className={cn(
-              "font-heading font-bold text-2xl md:text-3xl tracking-tight transition-colors duration-500",
-              transparent
-                ? "text-white hover:text-white/80"
-                : "text-foreground hover:text-primary"
-            )}
-          >
+          <Link to="/" className={cn("flex items-center gap-2 font-heading font-bold text-2xl md:text-3xl tracking-tight transition-colors duration-500", transparent ? "text-white hover:text-white/80" : "text-foreground hover:text-primary")}>
+            <img src="/logo.png" alt="OsteoForge" className={cn("h-10 md:h-12 w-auto object-contain transition-all duration-500", transparent ? "brightness-0 invert" : "")} />
             OsteoForge
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link to="/technology" className={navLinkClass("/technology")}>
-              Technology &amp; Products
+              Products
             </Link>
             <Link to="/about" className={navLinkClass("/about")}>
               About
@@ -116,7 +108,7 @@ export const Header = () => {
             >
               <div className="py-8 space-y-1">
                 {[
-                  { to: "/technology", label: "Technology & Products" },
+                  { to: "/technology", label: "Our te" },
                   { to: "/about", label: "About" },
                 ].map((link, i) => (
                   <motion.div

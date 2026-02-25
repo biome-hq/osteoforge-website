@@ -3,39 +3,6 @@ import { useRef } from "react";
 import { Check, X } from "lucide-react";
 import { Layout } from "@/components/Layout";
 
-const differentiators = [
-  {
-    number: "01",
-    title: "Bioactivity & Biomimicry",
-    description:
-      "Seribo enables a bioactive, biomimetic environment that supports osteointegration and regenerative healing. The platform architecture is designed to encourage cellular attachment and progressive mineralization, allowing the scaffold to actively participate in bone regeneration rather than function as a passive structural substitute.",
-  },
-  {
-    number: "02",
-    title: "Physiological Bioresorption",
-    description:
-      "Seribo supports controlled bioresorption at clinically relevant rates aligned with the natural bone healing cascade. The material maintains mechanical stability during early regeneration and progressively facilitates physiological load transfer to newly formed bone, eliminating the need for secondary removal procedures.",
-  },
-  {
-    number: "03",
-    title: "Radiolucency",
-    description:
-      "Seribo provides radiolucent performance that allows unobstructed X-ray and CT visualization of the healing site. This enables accurate monitoring of regeneration without the imaging artifacts commonly associated with metallic implants.",
-  },
-  {
-    number: "04",
-    title: "3D Printability",
-    description:
-      "Seribo integrates seamlessly with FDM-based 3D printing to enable complex, patient-specific geometries. The controlled porous architecture promotes cellular infiltration, vascularization, and uniform tissue integration — supporting predictable regenerative outcomes.",
-  },
-  {
-    number: "05",
-    title: "Sustainability",
-    description:
-      "Seribo combines advanced biomaterials with additive manufacturing to ensure precision fabrication and reduced material waste. The platform is designed for scalable production and cost-efficient deployment while aligning with broader sustainability goals in healthcare.",
-  },
-];
-
 const comparisonData = [
   { feature: "Bioactivity for bone regrowth", metal: false, other: false, seribo: true },
   { feature: "No secondary surgery", metal: false, other: true, seribo: true },
@@ -137,13 +104,8 @@ const Technology = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-white/80 mb-5">
-              Innovation
-            </p>
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
               Seribo&trade;
-              <br />
-              <span className="italic font-normal">Material Platform</span>
             </h1>
             <p className="text-base md:text-lg text-white/80 max-w-lg leading-relaxed">
               A silk fibroin-reinforced polymer composite that combines
@@ -154,94 +116,38 @@ const Technology = () => {
         </div>
       </section>
 
-      {/* What is Seribo — Pull-quote */}
-      <section className="py-24 md:py-36">
-        <div className="container-narrow">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <div className="divider-ornament mb-10">
-              <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-primary whitespace-nowrap">
-                The Science
-              </span>
-            </div>
-            <h2 className="font-heading text-2xl md:text-3xl lg:text-4xl text-foreground leading-[1.35] tracking-tight">
-              Seribo&trade; is an advanced bioactive and bioresorbable
-              composite, combining silk fibroin microfibers with
-              polycaprolactone (PCL). This natural fibre-reinforced polymer
-              composite delivers a unique balance of bioactivity, mechanical
-              strength, and manufacturability.
-            </h2>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 5 Key Differentiators */}
-      <section className="py-20 md:py-28 bg-bone">
+      {/* About Us */}
+      <section className="py-12 md:py-24">
         <div className="container-full">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3">
-              Key Advantages
-            </p>
-            <h2 className="font-heading text-3xl md:text-4xl text-foreground">
-              Five Pillars of Innovation
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-border">
-            {differentiators.slice(0, 3).map((item, i) => (
-              <motion.div
-                key={item.number}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="py-10 md:pr-10 border-b md:border-b-0 md:border-r border-border last:border-0"
-              >
-                <span className="text-xs font-medium text-primary/50 mb-3 block">
-                  {item.number}
-                </span>
-                <h3 className="font-heading text-xl text-foreground mb-4">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-[1.8]">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-border">
-            {differentiators.slice(3).map((item, i) => (
-              <motion.div
-                key={item.number}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (i + 3) * 0.1 }}
-                className="py-10 md:pr-10 border-b md:border-b-0 md:border-r border-border last:border-0"
-              >
-                <span className="text-xs font-medium text-primary/50 mb-3 block">
-                  {item.number}
-                </span>
-                <h3 className="font-heading text-xl text-foreground mb-4">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-[1.8]">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-12 gap-12 lg:gap-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="md:col-span-4"
+            >
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight">
+                What is Seribo
+              </h2>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="md:col-span-8"
+            >
+              <p className="text-foreground text-[17px] leading-[1.8] mb-6">
+                Seribo&trade; is a bioactive and bioresorbable platfrom that combines silk fibroin microfibers with PCL.
+              </p>
+              <p className="text-foreground text-[17px] leading-[1.8] mb-6">
+                This natural fibre–reinforced polymer is engineered to support bone regeneration while providing the mechanical strength required for clinical use.
+              </p>
+              <p className="text-foreground text-[17px] leading-[1.8] mb-6">
+                It is designed to promote cellular response and integration with native bone, offer initial structural stability followed by gradual physiological bioresorption, enable compatibility with advanced fabrication techniques, and radiolucency.OsteoForge is a medical technology startup focused on creating next-generation solutions for bone healing and regeneration. We develop bioactive, bioresorbable, and 3D printed implants that are safe, effective, and naturally integrate with the native bone.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -256,9 +162,6 @@ const Technology = () => {
             transition={{ duration: 0.6 }}
             className="mb-12"
           >
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3">
-              Compare
-            </p>
             <h2 className="font-heading text-3xl md:text-4xl text-foreground">
               Why Seribo&trade; Over Traditional Implants?
             </h2>
@@ -333,9 +236,6 @@ const Technology = () => {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3">
-              Product Line 01
-            </p>
             <h2 className="font-heading text-3xl md:text-5xl text-foreground mb-6">
               Seribo&trade; Scaffold System
             </h2>
@@ -356,17 +256,16 @@ const Technology = () => {
             className="relative aspect-[21/9] overflow-hidden mb-16"
           >
             <img
-              src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920&q=80"
+              src="./scaffold.png"
               alt="Seribo Scaffold System"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
-              <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/70">
-                Seribo™ Scaffold — SEM imaging, scale 200 µm
-              </p>
-            </div>
           </motion.div>
+          <div className="mb-16">
+            <p className="text-muted-foreground text-[15px] leading-[1.8] ">
+              Seribo&trade; enables a portfolio of regenerative solutions including patient-specific implants, porous bone grafts, and porous bone membranes. Precision-fit implants are 3D printed from individual CT data for exact anatomical conformity, eliminating intraoperative modifications and reducing operating time, while their interconnected porosity supports osteoblast attachment and vascularization. Porous bone grafts function as osteoconductive, bioresorbable scaffolds that guide new bone formation and gradually remodel into native tissue across trauma and defect indications. Porous bone membranes feature a dual-layer architecture with a smooth outer barrier to prevent soft tissue intrusion and a porous inner layer to promote guided bone regeneration, resorbing over time in alignment with healing.
+            </p>
+          </div>
 
           {/* Three scaffold sub-lines */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
@@ -416,11 +315,8 @@ const Technology = () => {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3">
-              Product Line 02
-            </p>
             <h2 className="font-heading text-3xl md:text-5xl text-foreground">
-              Bioresorbable Fixation System — CMF
+              Seribo&trade; Fixation System
             </h2>
           </motion.div>
 
@@ -435,16 +331,10 @@ const Technology = () => {
             >
               <div className="relative aspect-[4/3] overflow-hidden group">
                 <img
-                  src="https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=1200&q=80"
-                  alt="CMF Fixation System"
+                  src="./fixation.png"
+                  alt="Seribo&trade; Fixation System"
                   className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6">
-                  <p className="text-[10px] font-medium tracking-[0.2em] uppercase text-white/70">
-                    Seribo™ Fixation Material — SEM imaging, scale 20 µm
-                  </p>
-                </div>
               </div>
             </motion.div>
 
@@ -464,50 +354,40 @@ const Technology = () => {
               </p>
               <p className="text-muted-foreground text-[15px] leading-[1.8] mb-8">
                 Especially beneficial in pediatric cases, where ongoing bone
-                growth makes permanent metal implants unsuitable. Available in
-                CMF Plates, Orbital Plates, Neuro Plates, and Mesh Plates.
+                growth makes permanent metal implants unsuitable.
               </p>
               <div className="border-t border-border pt-6">
-                <p className="text-[10px] font-medium tracking-[0.25em] uppercase text-muted-foreground mb-3">
-                  Indications
-                </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Fracture repair and reconstruction in the craniomaxillofacial
                   skeleton (pediatric &amp; adult). Non-load-bearing use in
                   alignment and fixation of fragments, grafts, or substitutes in
                   CMF and mandibular regions.
+                  <br />
+                  <br />
+                  <b>Plate Design</b>
+                  <br />
+                  <br />
+
                 </p>
+                {fixationFeatures.map((f, i) => (
+                  <motion.div
+                    key={f.label}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    className="border-t border-border py-6"
+                  >
+                    <p className="font-heading text-lg text-foreground mb-2">{f.label}</p>
+                    <p className="text-sm text-muted-foreground leading-[1.8]">
+                      {f.description}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
 
-          {/* Plate design features */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="mt-16 md:mt-20"
-          >
-            <p className="text-[10px] font-medium tracking-[0.25em] uppercase text-muted-foreground mb-6">
-              Plate Design
-            </p>
-            {fixationFeatures.map((f, i) => (
-              <motion.div
-                key={f.label}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="border-t border-border py-6"
-              >
-                <p className="font-heading text-lg text-foreground mb-2">{f.label}</p>
-                <p className="text-sm text-muted-foreground leading-[1.8]">
-                  {f.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
     </Layout>

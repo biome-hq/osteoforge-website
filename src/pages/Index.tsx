@@ -242,49 +242,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Banner — Image background */}
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=1920&q=80"
-            alt="Partner with OsteoForge"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-foreground/70" />
-        </div>
-
-        <div className="relative container-full">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94] as const,
-            }}
-            className="max-w-xl"
-          >
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">
-              Ready to discuss how OsteoForge can serve your needs?
-            </h2>
-            <p className="text-white/70 leading-relaxed mb-10 max-w-md text-[15px]">
-              Whether you're a surgeon, distributor, or researcher — we'd
-              welcome the conversation.
-            </p>
-            <Button
-              asChild
-              size="lg"
-              className="rounded-none px-10 py-6 text-sm tracking-[0.12em] uppercase bg-white text-foreground hover:bg-white/90"
-            >
-              <a href="mailto:info@osteoforge.in">
-                Contact Our Team
-                <ArrowRight className="ml-3 w-4 h-4" />
-              </a>
-            </Button>
-          </motion.div>
-        </div>
-      </section>
     </Layout>
   );
 };
