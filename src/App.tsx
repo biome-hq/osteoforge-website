@@ -5,13 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
 import Index from "./pages/Index";
-import Products from "./pages/Products";
-import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
 import Technology from "./pages/Technology";
-import PSIWorkflow from "./pages/PSIWorkflow";
+import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,14 +21,9 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/product/:slug" element={<ProductDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/technology" element={<Technology />} />
-          <Route path="/psi-workflow" element={<PSIWorkflow />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/inquiry" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/products" element={<Products />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

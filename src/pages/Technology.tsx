@@ -67,7 +67,10 @@ const Technology = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section ref={heroRef} className="relative h-[80vh] md:h-screen overflow-hidden">
+      <section
+        ref={heroRef}
+        className="relative h-screen -mt-16 md:-mt-20 mb-[-1px] overflow-hidden"
+      >
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
             src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920&q=80"
@@ -81,9 +84,13 @@ const Technology = () => {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{
+              duration: 1,
+              delay: 0.3,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/60 mb-5">
+            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/80 mb-5">
               Innovation
             </p>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
@@ -91,7 +98,7 @@ const Technology = () => {
               <br />
               <span className="italic font-normal">Material Platform</span>
             </h1>
-            <p className="text-base md:text-lg text-white/70 max-w-lg leading-relaxed">
+            <p className="text-base md:text-lg text-white/80 max-w-lg leading-relaxed">
               A silk fibroin-reinforced polymer composite that combines
               bioactivity, mechanical strength, and 3D printability for
               next-generation bone healing.
@@ -116,10 +123,11 @@ const Technology = () => {
               </span>
             </div>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground leading-[1.25] tracking-tight">
-              Seribo&trade; is an advanced bioactive and bioresorbable composite,
-              combining silk fibroin microfibers with polycaprolactone (PCL).
-              This natural fibre-reinforced polymer composite delivers a unique
-              balance of bioactivity, mechanical strength, and manufacturability.
+              Seribo&trade; is an advanced bioactive and bioresorbable
+              composite, combining silk fibroin microfibers with
+              polycaprolactone (PCL). This natural fibre-reinforced polymer
+              composite delivers a unique balance of bioactivity, mechanical
+              strength, and manufacturability.
             </h2>
           </motion.div>
         </div>
@@ -143,28 +151,56 @@ const Technology = () => {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-12 lg:gap-20">
-            {differentiators.map((item, i) => (
-              <motion.div
-                key={item.number}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.15 }}
-                className="text-center"
-              >
-                <span className="text-[11px] font-semibold tracking-[0.3em] text-primary/50 mb-4 block">
-                  {item.number}
-                </span>
-                <h3 className="font-serif text-2xl text-foreground mb-5">
-                  {item.title}
-                </h3>
-                <div className="w-8 h-px bg-primary/30 mx-auto mb-5" />
-                <p className="text-muted-foreground leading-[1.8]">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
+          <div className="space-y-16 lg:space-y-20">
+            {/* First row: 3 items */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12 lg:gap-20">
+              {differentiators.slice(0, 3).map((item, i) => (
+                <motion.div
+                  key={item.number}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: i * 0.15 }}
+                  className="text-center"
+                >
+                  <span className="text-[11px] font-semibold tracking-[0.3em] text-primary/50 mb-4 block">
+                    {item.number}
+                  </span>
+                  <h3 className="font-serif text-2xl text-foreground mb-5">
+                    {item.title}
+                  </h3>
+                  <div className="w-8 h-px bg-primary/30 mx-auto mb-5" />
+                  <p className="text-muted-foreground leading-[1.8]">
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Second row: 2 items centered */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-12 lg:gap-20 max-w-2xl mx-auto">
+              {differentiators.slice(3).map((item, i) => (
+                <motion.div
+                  key={item.number}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: (i + 3) * 0.15 }}
+                  className="text-center"
+                >
+                  <span className="text-[11px] font-semibold tracking-[0.3em] text-primary/50 mb-4 block">
+                    {item.number}
+                  </span>
+                  <h3 className="font-serif text-2xl text-foreground mb-5">
+                    {item.title}
+                  </h3>
+                  <div className="w-8 h-px bg-primary/30 mx-auto mb-5" />
+                  <p className="text-muted-foreground leading-[1.8]">
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -228,7 +264,7 @@ const Technology = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/50 mb-5">
+            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/80 mb-5">
               Explore Further
             </p>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-10 leading-tight">
@@ -240,10 +276,10 @@ const Technology = () => {
                 size="lg"
                 className="rounded-none px-12 py-6 text-sm tracking-[0.15em] uppercase bg-white text-foreground hover:bg-white/90"
               >
-                <Link to="/products">
-                  View Products
+                <a href="mailto:info@osteoforge.in">
+                  Contact Us
                   <ArrowRight className="ml-3 w-4 h-4" />
-                </Link>
+                </a>
               </Button>
               <Button
                 asChild
@@ -251,8 +287,8 @@ const Technology = () => {
                 size="lg"
                 className="rounded-none px-12 py-6 text-sm tracking-[0.15em] uppercase text-white border-white hover:bg-white hover:text-foreground"
               >
-                <Link to="/psi-workflow">
-                  PSI Workflow
+                <Link to="/products">
+                  Our Solutions
                   <ArrowRight className="ml-3 w-4 h-4" />
                 </Link>
               </Button>

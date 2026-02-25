@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { collections } from "@/data/products";
 
 export const Footer = () => {
   return (
@@ -47,26 +46,7 @@ export const Footer = () => {
 
       {/* Main footer content */}
       <div className="container-full py-12 md:py-16">
-        <div className="grid gap-10 md:grid-cols-4">
-          {/* Products */}
-          <div>
-            <h4 className="text-[11px] font-semibold tracking-[0.25em] uppercase text-background/40 mb-5">
-              Products
-            </h4>
-            <ul className="space-y-3">
-              {collections.map((collection) => (
-                <li key={collection.id}>
-                  <Link
-                    to={`/products?collection=${collection.slug}`}
-                    className="text-sm text-background/60 hover:text-background transition-colors duration-300"
-                  >
-                    {collection.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+        <div className="grid gap-10 md:grid-cols-3">
           {/* Company */}
           <div>
             <h4 className="text-[11px] font-semibold tracking-[0.25em] uppercase text-background/40 mb-5">
@@ -83,18 +63,18 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/technology"
+                  to="/products"
                   className="text-sm text-background/60 hover:text-background transition-colors duration-300"
                 >
-                  Technology
+                  Products
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/psi-workflow"
+                  to="/technology"
                   className="text-sm text-background/60 hover:text-background transition-colors duration-300"
                 >
-                  PSI Workflow
+                  Technology
                 </Link>
               </li>
               <li>

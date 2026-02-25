@@ -15,7 +15,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero — Full Viewport */}
-      <section ref={heroRef} className="relative h-[80vh] md:h-screen overflow-hidden">
+      <section ref={heroRef} className="relative h-screen -mt-16 md:-mt-20 mb-[-1px] overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
             src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1920&q=80"
@@ -31,7 +31,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/60 mb-5">
+            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/80 mb-5">
               Our Mission
             </p>
             <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
@@ -319,13 +319,13 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/50 mb-5">
+            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/80 mb-5">
               Partner With Us
             </p>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
               Work With OsteoForge
             </h2>
-            <p className="text-white/60 mb-10 max-w-md mx-auto leading-relaxed">
+            <p className="text-white/80 mb-10 max-w-md mx-auto leading-relaxed">
               Whether you're a surgeon, hospital administrator, distributor, or
               researcher, we'd love to discuss how our solutions can serve your
               needs.
