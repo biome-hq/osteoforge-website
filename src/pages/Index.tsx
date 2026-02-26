@@ -54,7 +54,7 @@ const Index = () => {
           <img
             src="./banner5.png"
             alt="Medical technology laboratory"
-            className="w-full h-full object-cover animate-ken-burns"
+            className="w-full h-full object-cover object-left md:object-center animate-ken-burns"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-foreground/30 via-foreground/10 to-foreground/50" />
         </motion.div>
@@ -74,9 +74,9 @@ const Index = () => {
             className="max-w-3xl"
           >
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-white mb-8 leading-[0.9] tracking-tight">
-              Reimagining
+              Redefining
               <br />
-              <span className="italic font-normal whitespace-nowrap">Bone Healing</span>
+              <span className="italic font-normal">Bone Healing</span>
             </h1>
             <p className="text-base md:text-lg text-white mb-10 leading-relaxed max-w-lg">
               Restoring function. Accelerating recovery.
@@ -84,14 +84,16 @@ const Index = () => {
               Safer than ever before.
             </p>
             <Button
-              asChild
               size="lg"
               className="rounded-none px-10 py-6 text-sm tracking-[0.12em] uppercase"
+              onClick={() => {
+                heroRef.current?.nextElementSibling?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
             >
-              <Link to="/technology">
-                Learn about our Technology
-                <ArrowRight className="ml-3 w-4 h-4" />
-              </Link>
+              Learn about our Technology
+              <ArrowRight className="ml-3 w-4 h-4" />
             </Button>
           </motion.div>
 

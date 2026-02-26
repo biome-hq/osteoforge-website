@@ -108,7 +108,7 @@ export const Header = () => {
             >
               <div className="py-8 space-y-1">
                 {[
-                  { to: "/technology", label: "Our te" },
+                  { to: "/technology", label: "Our Technology" },
                   { to: "/about", label: "About" },
                 ].map((link, i) => (
                   <motion.div

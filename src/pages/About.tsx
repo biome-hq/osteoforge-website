@@ -202,7 +202,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="md:py-28">
+      <section className="py-20 md:py-28">
         <div className="container-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

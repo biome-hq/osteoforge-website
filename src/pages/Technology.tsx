@@ -145,7 +145,7 @@ const Technology = () => {
                 This natural fibre–reinforced polymer is engineered to support bone regeneration while providing the mechanical strength required for clinical use.
               </p>
               <p className="text-foreground text-[17px] leading-[1.8] mb-6">
-                It is designed to promote cellular response and integration with native bone, offer initial structural stability followed by gradual physiological bioresorption, enable compatibility with advanced fabrication techniques, and radiolucency.OsteoForge is a medical technology startup focused on creating next-generation solutions for bone healing and regeneration. We develop bioactive, bioresorbable, and 3D printed implants that are safe, effective, and naturally integrate with the native bone.
+                It is designed to promote cellular response and integration with native bone, offer initial structural stability followed by gradual physiological bioresorption, enable compatibility with advanced fabrication techniques, and radiolucency.
               </p>
             </motion.div>
           </div>
@@ -253,7 +253,7 @@ const Technology = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative aspect-[21/9] overflow-hidden mb-16"
+            className="relative aspect-[4/3] md:aspect-[21/9] overflow-hidden mb-16"
           >
             <img
               src="./scaffold.png"
