@@ -78,7 +78,7 @@ const Index = () => {
               <br />
               <span className="italic font-normal whitespace-nowrap">Bone Healing</span>
             </h1>
-            <p className="text-base md:text-lg text-white/80 mb-10 leading-relaxed max-w-lg">
+            <p className="text-base md:text-lg text-white mb-10 leading-relaxed max-w-lg">
               Restoring function. Accelerating recovery.
               <br />
               Safer than ever before.
@@ -127,7 +127,7 @@ const Index = () => {
               className="relative aspect-[4/5] overflow-hidden group"
             >
               <img
-                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920&q=80"
+                src="./seribo.png"
                 alt="Seribo™ Material Platform"
                 className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
               />
@@ -152,10 +152,11 @@ const Index = () => {
                 Seribo™
               </h2>
               <p className="text-muted-foreground text-[15px] leading-[1.75] mb-8 max-w-md">
-                A revolutionary silk fibroin-reinforced polymer composite
-                combining bioactivity, mechanical strength, and 3D printability.
-                Seribo™ enables implants that promote natural bone growth and
-                dissolve safely over time.
+                Seribo™ is a proprietary silk microfiber–reinforced polycaprolactone (PCL) composite developed for advanced bone regeneration.
+                It combines the bioactivity of silk fibroin with the mechanical strength and controlled resorption of PCL to support predictable healing.
+                <br />
+                The material enhances cellular adhesion and osteogenesis while providing temporary structural support during bone repair.
+                Seribo™ forms the foundation for our 3D printed implants, porous grafts and membranes, and injection-moulded bioresorbable fixation systems for craniomaxillofacial and orthopedic applications.
               </p>
               <Button
                 asChild

@@ -41,21 +41,21 @@ const team = [
     role: "Founder & CEO",
     bio: "Dr. Ramya Bojedla, Oral Physician and Maxillofacial Radiologist with 4 years of clinical experience, a Ph.D. from IIT Hyderabad, and over 7 years of research expertise, drives innovation in medical device development with her deep clinical insights.",
     image:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80",
+      "./dr-ramya.png",
   },
   {
     name: "Dr Syam Kumar Y, PhD",
     role: "Co-Founder & Chief Scientific Officer",
     bio: "Dr. Syam, with over 15 years of expertise in regulatory affairs, ensures OsteoForge's products meet the highest international quality standards and compliance requirements. His expertise guarantees that our innovations adhere to stringent regulatory benchmarks, ensuring global acceptance and trust.",
     image:
-      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80",
+      "./syam.png",
   },
   {
     name: "Dr Falguni Pati, PhD",
     role: "Advisor",
     bio: "With 20 years of experience, Dr. Pati leads research initiatives at OsteoForge, driving innovation and ensuring the company remains at the forefront of biomedical advancements.",
     image:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80",
+      "./falguni.png",
   },
 ];
 
@@ -76,7 +76,7 @@ const About = () => {
       >
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
-            src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1920&q=80"
+            src="./about-page.png"
             alt="OsteoForge research laboratory"
             className="w-full h-[120%] object-cover"
           />
@@ -92,9 +92,9 @@ const About = () => {
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
               Redefining
               <br />
-              <span className="italic font-normal">Regenerative Healthcare</span>
+              <span className="italic font-normal">Bone Healing</span>
             </h1>
-            <p className="text-base md:text-lg text-white/70 max-w-lg leading-relaxed">
+            <p className="text-base md:text-lg text-white max-w-lg leading-relaxed">
               Safe, effective, and affordable next-generation bone regeneration
               technology, designed in India for the world.
             </p>
@@ -125,7 +125,7 @@ const About = () => {
               className="md:col-span-8"
             >
               <p className="text-foreground text-[17px] leading-[1.8] mb-6">
-                OsteoForge is a medical technology startup focused on creating next-generation solutions for bone healing and regeneration. We develop bioactive, bioresorbable, and 3D printed implants that are safe, effective, and naturally integrate with the native bone.
+                OsteoForge is a medical technology startup focused on developing next-generation solutions for bone healing and regeneration. We design bioactive, bioresorbable implants that are safe, effective, and engineered to integrate naturally with bone.
               </p>
               <p className="text-foreground text-[17px] leading-[1.8] mb-6">
                 Our goal is to replace traditional metal implants with advanced materials that promote natural bone growth, dissolve safely over time, and remove the need for secondary surgeries.
@@ -230,7 +230,7 @@ const About = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+                    className="w-full h-full object-cover object-top transition-transform duration-[1.5s] ease-out"
                   />
                 </div>
                 <h3 className="font-heading text-lg text-foreground mb-1">

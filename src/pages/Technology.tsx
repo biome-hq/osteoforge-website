@@ -91,7 +91,7 @@ const Technology = () => {
       >
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
-            src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920&q=80"
+            src="./seribo.png"
             alt="Seribo material platform"
             className="w-full h-[120%] object-cover"
           />
@@ -107,7 +107,7 @@ const Technology = () => {
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
               Seribo&trade;
             </h1>
-            <p className="text-base md:text-lg text-white/80 max-w-lg leading-relaxed">
+            <p className="text-base md:text-lg text-white max-w-lg leading-relaxed">
               A silk fibroin-reinforced polymer composite that combines
               bioactivity, mechanical strength, and 3D printability for
               next-generation bone healing.
