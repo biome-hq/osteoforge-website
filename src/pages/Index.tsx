@@ -79,9 +79,9 @@ const Index = () => {
               <span className="italic font-normal">Bone Healing</span>
             </h1>
             <p className="text-base md:text-lg text-white mb-10 leading-relaxed max-w-lg">
-              Restoring function. Accelerating recovery.
+              Restoring function, reconfiguring aesthetics.
               <br />
-              Safer than ever before.
+              Faster & Safer than ever before.
             </p>
             <Button
               size="lg"

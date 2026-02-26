@@ -145,7 +145,7 @@ const Technology = () => {
                 This natural fibre–reinforced polymer is engineered to support bone regeneration while providing the mechanical strength required for clinical use.
               </p>
               <p className="text-foreground text-[17px] leading-[1.8] mb-6">
-                It is designed to promote cellular response and integration with native bone, offer initial structural stability followed by gradual physiological bioresorption, enable compatibility with advanced fabrication techniques, and radiolucency.
+                It is designed to promote cellular response and integration with native bone, offer initial structural stability followed by gradual physiological bioresorption, enable compatibility with advanced fabrication techniques.
               </p>
             </motion.div>
           </div>
