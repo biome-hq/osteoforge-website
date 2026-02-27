@@ -74,7 +74,7 @@ export const Footer = () => {
                     size="lg"
                     className="rounded-none px-10 py-6 text-sm tracking-[0.12em] shrink-0 bg-background/70 text-foreground hover:bg-background/90"
                   >
-                    <a href="mailto:info@osteoforge.in">
+                    <a href="mailto:corporate@osteoforge.com">
                       Contact Us
                       <ArrowRight className="ml-3 w-4 h-4" />
                     </a>
