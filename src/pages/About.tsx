@@ -8,21 +8,21 @@ const team = [
     role: "Founder & CEO",
     bio: "Dr. Ramya Bojedla, Oral Physician and Maxillofacial Radiologist with 4 years of clinical experience, a Ph.D. from IIT Hyderabad, and over 7 years of research expertise, drives innovation in medical device development with her deep clinical insights.",
     image:
-      "./dr-ramya.png",
+      "./dr-ramya.webp",
   },
   {
     name: "Dr Syam Kumar Y, PhD",
     role: "Co-Founder & CSO",
     bio: "Dr. Syam, with over 15 years of expertise in regulatory affairs, ensures OsteoForge's products meet the highest international quality standards and compliance requirements. His expertise guarantees that our innovations adhere to stringent regulatory benchmarks, ensuring global acceptance and trust.",
     image:
-      "./syam.png",
+      "./syam.webp",
   },
   {
     name: "Dr Falguni Pati, PhD",
     role: "Advisor",
     bio: "With 20 years of experience, Dr. Pati leads research initiatives at OsteoForge, driving innovation and ensuring the company remains at the forefront of biomedical advancements.",
     image:
-      "./falguni.png",
+      "./falguni.webp",
   },
 ];
 
@@ -43,7 +43,7 @@ const About = () => {
       >
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
-            src="./about-page.png"
+            src="./about-page.webp"
             alt="OsteoForge research laboratory"
             className="w-full h-[120%] object-cover"
           />

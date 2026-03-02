@@ -44,7 +44,7 @@ export const Header = () => {
       <nav className="container-full">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className={cn("flex items-center gap-2 font-heading font-bold text-2xl md:text-3xl tracking-tight transition-colors duration-500", transparent ? "text-white hover:text-white/80" : "text-foreground hover:text-primary")}>
-            <img src="/logo.png" alt="OsteoForge" className={cn("h-10 md:h-12 w-auto object-contain transition-all duration-500", transparent ? "brightness-0 invert" : "")} />
+            <img src="/logo.webp" alt="OsteoForge" className={cn("h-10 md:h-12 w-auto object-contain transition-all duration-500", transparent ? "brightness-0 invert" : "")} />
             OsteoForge
           </Link>
 

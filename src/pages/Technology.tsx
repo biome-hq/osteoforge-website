@@ -91,7 +91,7 @@ const Technology = () => {
       >
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
-            src="./seribo.png"
+            src="./seribo.webp"
             alt="Seribo material platform"
             className="w-full h-[120%] object-cover"
           />
@@ -256,7 +256,7 @@ const Technology = () => {
             className="relative aspect-[4/3] md:aspect-[21/9] overflow-hidden mb-16"
           >
             <img
-              src="./scaffold.png"
+              src="./scaffold.webp"
               alt="Seribo Scaffold System"
               className="w-full h-full object-cover"
             />
@@ -331,7 +331,7 @@ const Technology = () => {
             >
               <div className="relative aspect-[4/3] overflow-hidden group">
                 <img
-                  src="./fixation.png"
+                  src="./fixation.webp"
                   alt="Seribo&trade; Fixation System"
                   className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                 />
