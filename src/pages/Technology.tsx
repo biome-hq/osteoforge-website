@@ -87,7 +87,7 @@ const Technology = () => {
       {/* Hero */}
       <section
         ref={heroRef}
-        className="relative h-screen -mt-16 md:-mt-20 mb-[-1px] overflow-hidden"
+        className="relative h-screen -mt-16 md:-mt-20 -mb-px overflow-hidden"
       >
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
@@ -95,7 +95,7 @@ const Technology = () => {
             alt="Seribo material platform"
             className="w-full h-[120%] object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-foreground/20 via-foreground/10 to-foreground/50" />
+          <div className="absolute inset-0 bg-linear-to-b from-foreground/20 via-foreground/10 to-foreground/50" />
         </motion.div>
 
         <div className="relative container-full h-full flex flex-col justify-end pb-20 md:pb-28">
@@ -104,10 +104,10 @@ const Technology = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9] md:leading-none">
               Seribo&trade;
             </h1>
-            <p className="text-base md:text-lg text-white max-w-lg leading-relaxed">
+            <p className="text-base md:text-lg text-white max-w-lg leading-relaxed md:leading-7">
               A silk fibroin-reinforced polymer composite that combines
               bioactivity, mechanical strength, and 3D printability for
               next-generation bone healing.
@@ -127,7 +127,7 @@ const Technology = () => {
               transition={{ duration: 0.6 }}
               className="md:col-span-4"
             >
-              <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight">
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight md:leading-10">
                 What is Seribo
               </h2>
             </motion.div>
@@ -253,7 +253,7 @@ const Technology = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative aspect-[4/3] md:aspect-[21/9] overflow-hidden mb-16"
+            className="relative aspect-4/3 md:aspect-cinema overflow-hidden mb-16"
           >
             <img
               src="./scaffold.webp"
@@ -329,7 +329,7 @@ const Technology = () => {
               transition={{ duration: 0.9 }}
               className="md:col-span-7"
             >
-              <div className="relative aspect-[4/3] overflow-hidden group">
+              <div className="relative aspect-4/3 overflow-hidden group">
                 <img
                   src="./fixation.webp"
                   alt="Seribo&trade; Fixation System"

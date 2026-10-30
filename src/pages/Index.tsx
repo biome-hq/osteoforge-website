@@ -48,7 +48,7 @@ const Index = () => {
       {/* Hero Section — Full Viewport */}
       <section
         ref={heroRef}
-        className="relative h-screen -mt-16 md:-mt-20 mb-[-1px] overflow-hidden"
+        className="relative h-screen -mt-16 md:-mt-20 -mb-px overflow-hidden"
       >
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
@@ -56,7 +56,7 @@ const Index = () => {
             alt="Medical technology laboratory"
             className="w-full h-full object-cover object-left md:object-center animate-ken-burns"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-foreground/30 via-foreground/10 to-foreground/50" />
+          <div className="absolute inset-0 bg-linear-to-b from-foreground/30 via-foreground/10 to-foreground/50" />
         </motion.div>
 
         <motion.div
@@ -73,12 +73,12 @@ const Index = () => {
             }}
             className="max-w-3xl"
           >
-            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-white mb-8 leading-[0.9] tracking-tight">
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-white mb-8 leading-[0.9] md:leading-none tracking-tight">
               Redefining
               <br />
               <span className="italic font-normal">Bone Healing</span>
             </h1>
-            <p className="text-base md:text-lg text-white mb-10 leading-relaxed max-w-lg">
+            <p className="text-base md:text-lg text-white mb-10 leading-relaxed md:leading-7 max-w-lg">
               Restoring function, reconfiguring aesthetics.
               <br />
               Faster & Safer than ever before.
@@ -126,14 +126,14 @@ const Index = () => {
                 duration: 0.8,
                 ease: [0.25, 0.46, 0.45, 0.94] as const,
               }}
-              className="relative aspect-[4/5] overflow-hidden group"
+              className="relative aspect-4/5 overflow-hidden group"
             >
               <img
                 src="./seribo.webp"
                 alt="Seribo™ Material Platform"
                 className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-foreground/40 via-transparent to-transparent" />
             </motion.div>
 
             <motion.div
@@ -150,7 +150,7 @@ const Index = () => {
               <p className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-4">
                 Our Innovation
               </p>
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-[0.95]">
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-[0.95] md:leading-none">
                 Seribo™
               </h2>
               <p className="text-muted-foreground text-[15px] leading-[1.75] mb-8 max-w-md">
@@ -186,7 +186,7 @@ const Index = () => {
               transition={{ duration: 0.6 }}
               className="md:col-span-5"
             >
-              <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight">
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight md:leading-10">
                 Five key advantages that set OsteoForge apart in regenerative
                 healthcare.
               </h2>

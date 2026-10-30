@@ -39,7 +39,7 @@ const About = () => {
       {/* Hero — Full Viewport */}
       <section
         ref={heroRef}
-        className="relative h-screen -mt-16 md:-mt-20 mb-[-1px] overflow-hidden"
+        className="relative h-screen -mt-16 md:-mt-20 -mb-px overflow-hidden"
       >
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
@@ -47,7 +47,7 @@ const About = () => {
             alt="OsteoForge research laboratory"
             className="w-full h-[120%] object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-foreground/20 via-foreground/10 to-foreground/50" />
+          <div className="absolute inset-0 bg-linear-to-b from-foreground/20 via-foreground/10 to-foreground/50" />
         </motion.div>
 
         <div className="relative container-full h-full flex flex-col justify-end pb-20 md:pb-28">
@@ -56,12 +56,12 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9]">
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-[0.9] md:leading-none">
               Redefining
               <br />
               <span className="italic font-normal">Bone Healing</span>
             </h1>
-            <p className="text-base md:text-lg text-white max-w-lg leading-relaxed">
+            <p className="text-base md:text-lg text-white max-w-lg leading-relaxed md:leading-7">
               Safe, effective, and affordable next-generation bone regeneration
               technology, designed in India for the world.
             </p>
@@ -80,7 +80,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="md:col-span-4"
             >
-              <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight">
+              <h2 className="font-heading text-3xl md:text-4xl text-foreground leading-tight md:leading-10">
                 About Us
               </h2>
             </motion.div>
@@ -130,7 +130,7 @@ const About = () => {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
               >
                 {/* Portrait */}
-                <div className="aspect-[3/4] overflow-hidden mb-6 bg-muted group">
+                <div className="aspect-editorial overflow-hidden mb-6 bg-muted group">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -140,7 +140,7 @@ const About = () => {
                 <h3 className="font-heading text-lg text-foreground mb-1">
                   {member.name}
                 </h3>
-                <p className="text-xs font-medium tracking-[0.15em] uppercase text-primary mb-4">
+                <p className="text-xs font-medium tracking-editorial uppercase text-primary mb-4">
                   {member.role}
                 </p>
                 <p className="text-muted-foreground text-sm leading-[1.8]">

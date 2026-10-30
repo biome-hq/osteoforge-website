@@ -22,7 +22,7 @@ export const Header = () => {
   }, []);
 
   const navLinkClass = (path: string) => cn(
-    "text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-500 link-underline",
+    "text-xs font-medium tracking-editorial uppercase transition-colors duration-500 link-underline",
     _pathname === path
       ? transparent
         ? "text-white"
@@ -38,7 +38,7 @@ export const Header = () => {
         "sticky top-0 z-50 transition-all duration-500",
         transparent
           ? "bg-transparent"
-          : "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-background/95 backdrop-blur-md border-b border-border shadow-xs"
       )}
     >
       <nav className="container-full">
