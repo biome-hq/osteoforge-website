@@ -22,3 +22,22 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Env and secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+
+# Cloudflare
+.wrangler
+
+# This project uses npm (package-lock.json); a stray bun lockfile makes
+# Cloudflare switch to `bun install --frozen-lockfile` and fail the build.
+bun.lockb
+bun.lock
+yarn.lock
+pnpm-lock.yaml
+
+# Test output
+coverage
