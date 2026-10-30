@@ -1,4 +1,4 @@
-# OsteoForge site
+# OsteoForge website
 
 Marketing site for OsteoForge. Vite + React + TypeScript + Tailwind.
 
