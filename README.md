@@ -10,15 +10,15 @@ npm run lint
 npm test
 ```
 
-## Deploying to Cloudflare Workers
+## Deploying to Cloudflare Pages
 
-Workers Builds runs `npm run build`, then `npx wrangler deploy`, which reads
-`wrangler.jsonc` and uploads `dist/` as static assets.
-
+- Build command: `npm run build`
+- Output directory: `dist`
 - Node 22.23.4, pinned in `.node-version` (Vite 8 needs 22.12+)
-- `wrangler.jsonc` sets `not_found_handling: "single-page-application"`, so a
-  direct load of `/about` serves `index.html` instead of a 404. Without the
-  file, wrangler tries to auto-configure the Vite project during the build.
+
+Client-side routes like `/about` fall back to `index.html` automatically
+because `dist/` has no top-level `404.html`. Don't add one, or direct loads of
+app routes will 404.
 
 Use npm only. A `bun.lockb` in the repo makes Cloudflare run
 `bun install --frozen-lockfile`, which fails if that file has drifted from

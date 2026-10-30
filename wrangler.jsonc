@@ -1,9 +1,0 @@
-{
-  "name": "osteoforge-website",
-  "compatibility_date": "2026-10-01",
-  "assets": {
-    "directory": "./dist",
-    // Serve index.html for client-side routes like /about on a direct load.
-    "not_found_handling": "single-page-application"
-  }
-}
