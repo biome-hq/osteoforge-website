@@ -14,7 +14,7 @@ npm test
 
 - Build command: `npm run build`
 - Output directory: `dist`
-- Node 22, pinned in `.node-version` (Vite 8 needs 22.12+)
+- Node 22.23.4, pinned in `.node-version` (Vite 8 needs 22.12+)
 
 Use npm only. A `bun.lockb` in the repo makes Cloudflare run
 `bun install --frozen-lockfile`, which fails if that file has drifted from

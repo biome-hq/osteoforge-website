@@ -52,7 +52,7 @@ const Index = () => {
       >
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
-            src="./banner5.webp"
+            src="/banner5.webp"
             alt="Medical technology laboratory"
             className="w-full h-full object-cover object-left md:object-center animate-ken-burns"
           />
@@ -129,7 +129,7 @@ const Index = () => {
               className="relative aspect-4/5 overflow-hidden group"
             >
               <img
-                src="./seribo.webp"
+                src="/seribo.webp"
                 alt="Seribo™ Material Platform"
                 className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
               />
